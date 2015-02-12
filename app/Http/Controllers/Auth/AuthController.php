@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
-use Artdarek\OAuth\Facade\OAuth;
-use Diego1araujo\Titleasy\Titleasy as Title;
 
 class AuthController extends Controller
 {

@@ -29,10 +29,7 @@
       bottom: 0;
       width: 100%;
       height: 100%;
-      background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
-      background: -moz-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
-      background: -o-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
-      background: linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
+      @include gradient-horizontal($secondary-color, $primary-color, 0%, 100%);
     }
 
     &:after {
@@ -160,10 +157,7 @@
   #frogs {
     -webkit-font-smoothing: antialiased;
     background: black;
-    background: -webkit-linear-gradient(top, #332d2f 0, black 100%);
-    background: -moz-linear-gradient(top, #332d2f 0, black 100%);
-    background: -o-linear-gradient(top, #332d2f 0, black 100%);
-    background: linear-gradient(top, #332d2f 0, black 100%);
+    @include gradient-vertical(#332d2f, black, 0%, 100%);
     color: white;
     text-align: center;
     background-size: cover;
@@ -182,10 +176,7 @@
     border-top: 1px solid #EAEAEA;
     border-bottom: 1px solid #EAEAEA;
     background: $primary-color;
-    background: -webkit-linear-gradient(top, $secondary-color 0, $primary-color 100%);
-    background: -moz-linear-gradient(top, $secondary-color 0, $primary-color 100%);
-    background: -o-linear-gradient(top, $secondary-color 0, $primary-color 100%);
-    background: linear-gradient(top, $secondary-color 0, $primary-color 100%);
+    @include gradient-vertical($secondary-color, $primary-color, 0%, 100%);
     margin-top: 110px;
     padding-top: 45px;
     padding-bottom: 70px;

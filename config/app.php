@@ -145,13 +145,14 @@ return [
 		'Msenl\Providers\EventServiceProvider',
 		'Msenl\Providers\RouteServiceProvider',
 		'Msenl\Providers\UserServiceProvider',
+		'Msenl\Providers\ErrorServiceProvider',
 
 		/*
 		 * Third Party Providers
 		 */
-		'Diego1araujo\Titleasy\ServiceProvider',
 		'Former\FormerServiceProvider',
-		'Artdarek\OAuth\OAuthServiceProvider',
+		'Laravel\Socialite\SocialiteServiceProvider',
+		'Diego1araujo\Titleasy\ServiceProvider',
 
 	],
 
@@ -200,6 +201,10 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'Former' => 'Former\Facades\Former',
+		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+		'Title' => 'Diego1araujo\Titleasy\Facade',
 
 	],
 

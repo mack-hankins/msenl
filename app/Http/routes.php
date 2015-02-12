@@ -1,7 +1,7 @@
 <?php
 
-Route::get('/', 'Msenl\Http\Controllers\IndexController@index');
-Route::get('/quickstart', 'Msenl\Http\Controllers\PagesController@QuickStart');
+Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
+Route::get('/quickstart', 'PagesController@QuickStart');
 
 /*Login and Register*/
 Route::get('/login', 'Msenl\Http\Controllers\AuthController@login');

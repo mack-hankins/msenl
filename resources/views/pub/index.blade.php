@@ -1,8 +1,8 @@
-@extends('_layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
-    @include('_partials.hero_index_pub')
+    @include('partials.hero_index_pub')
 
     <div id="features">
         <div class="container">
@@ -76,11 +76,14 @@
                     <img src="{{ URL::asset('images/burster.png') }}" class="img-responsive"/>
 
                     <p>XExotic Matter Puse Weapons which destroy enemy Resonators and Mods and neutralize enmy
-                        Portals.</p>
+                        Portals.
+                    </p>
                 </div>
-                <div><a href="{{ URL::action('Msenl\Controllers\PagesController@QuickStart') }}">
+                <div>
+                    <a href="{{ URL::action('PagesController@QuickStart') }}">
                         <button class="btn btn-lg">Quick Start</button>
-                    </a></div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

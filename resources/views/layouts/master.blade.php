@@ -12,9 +12,9 @@
               href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css"
               href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         @yield('styles')
-        <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}"/>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
 
 
     </head>
@@ -28,12 +28,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{{ URL::to('/') }}" class="navbar-brand">MS Enlightened</a>
+                    <a href="{{ route('/') }}" class="navbar-brand">MS Enlightened</a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ URL::action('Msenl\Controllers\PagesController@QuickStart') }}">
+                            <a href="{{ action('PagesController@QuickStart') }}">
                                 Quick Start
                             </a>
                         </li>
@@ -61,13 +61,13 @@
                                         <a href="#"><i class="fa fa-user"></i> Profile</a>
                                     </li>
                                     <li>
-                                        <a href="{{ URL::action('Msenl\Controllers\AuthController@logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                                        <a href="{{ action('Msenl\Http\Controllers\AuthController@logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                                     </li>
                                 </ul>
                             </li>
                         @else
                             <li class="no-hover"><a
-                                        href="{{ URL::action('Msenl\Controllers\AuthController@login') }}">
+                                        href="{{ action('Msenl\Http\Controllers\AuthController@login') }}">
                                     <button class="btn btn-sm login-button"><i class="fa fa-google-plus"></i> Login
                                     </button>
                                 </a></li>
@@ -95,7 +95,7 @@
                         <h3>Overview</h3>
                         <ul>
                             <li>
-                                <a href="{{ URL::to('/') }}">Home</a>
+                                <a href="{{ route('/') }}">Home</a>
                             </li>
                             <li>
                                 <a href="#">Agents</a>
@@ -104,7 +104,7 @@
                                 <a href="#">FAQ</a>
                             </li>
                             <li>
-                                <a href="{{ URL::action('Msenl\Controllers\PagesController@QuickStart') }}">Quick Start</a>
+                                <a href="{{ action('PagesController@QuickStart') }}">Quick Start</a>
                             </li>
                         </ul>
                     </div>

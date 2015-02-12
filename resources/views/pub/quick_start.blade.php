@@ -1,8 +1,8 @@
-@extends('_layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
-    @include('_partials.page-header')
+    @include('partials.page-header')
     <div class="container">
         <div class="">
             <div class="portlet light bordered">

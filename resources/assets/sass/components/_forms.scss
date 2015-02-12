@@ -22,7 +22,7 @@ Forms
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
     &:focus {
-        border-color: $input-border-focus !important;
+        border-color: $input-border-focus;
         outline: 0;
         -webkit-box-shadow: none;
         box-shadow: none;

@@ -1,12 +1,11 @@
 <?php namespace Msenl\Http\Controllers;
 
-use View;
 
-class IndexController extends BaseController {
+class IndexController extends Controller {
 
     public function index()
     {
-        return View::make('pub.index');
+        return view('pub.index');
     }
 
 }
