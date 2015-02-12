@@ -1,0 +1,143 @@
+@mixin features-section {
+
+	@media(max-width: 991px) {
+		margin-top: 50px;
+	}
+
+  	background-color: inherit;
+
+	.header {
+		text-align: center;
+        margin-top: -20px;
+		h2 {
+			color: #555;
+			font-weight: 300;
+			font-size: 28px;
+
+			@media (max-width: 767px) {
+				font-size: 25px;
+			}
+		}
+		p {
+			font-weight: 300;
+			font-size: 17px;
+			color: #757575;
+		}
+	}
+	.feature {
+
+		margin-top: 55px;
+		-webkit-font-smoothing: antialiased;
+
+		@media (min-width: 992px) {
+			&.backwards {
+				.info {
+					float: right;
+				}
+				.image {
+					float: left;
+					img {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+
+		@media (max-width: 991px) {
+			margin-top: 10px;
+		}
+
+		.info {
+			h4 {
+				color: #469F42;
+				font-weight: normal;
+				font-size: 19px;
+				line-height: 25px;
+				margin-top: 35px;
+
+				@media (max-width: 991px) {
+					text-align: center;
+				}
+			}
+			p {
+				color: #6C7279;
+				font-size: 14px;
+				margin-top: 20px;
+				line-height: 24px;
+				width: 83%;
+				font-weight: normal;
+
+				@media (max-width: 991px) {
+					text-align: center;
+					width: 100%;
+					font-size: 14px;
+				}
+			}
+          .join {
+            margin: 50px auto;
+            background-color: #42973F;
+            color: #fff;
+            text-align: center;
+            font-size: 45px;
+            padding: 10px;
+            @include transform(rotate(#{-3}deg));
+            @media (max-width: 767px) {
+              font-size: 20px;
+              line-height: 38px;
+              margin: 0;
+              text-align: center;
+            }
+          }
+		}
+
+		.image {
+			@media (max-width: 991px) {
+				img {
+					margin: 0 auto !important;
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+
+
+  .community{
+
+	margin: 40px 0;
+
+	img {
+	  @include circle(40px);
+	  border: 2px solid $primary-color;
+	  display: block;
+	  width: 200px;
+	  height: 200px;
+	  margin: 0 auto;
+	}
+
+	h3 {
+	  color: #555;
+	  font-weight: 300;
+	  font-size: 20px;
+	  text-align: center;
+	  margin-top: 25px;
+
+	  @media (max-width: 767px) {
+		font-size: 16px;
+	  }
+	}
+
+	p {
+	  color: #555;
+	  font-weight: 300;
+	  font-size: 16px;
+	  text-align: center;
+	  margin-bottom: 20px;
+
+	  @media (max-width: 767px) {
+		font-size: 12px;
+	  }
+	}
+  }
+
+
+}

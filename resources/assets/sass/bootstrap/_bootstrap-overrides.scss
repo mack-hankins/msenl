@@ -1,0 +1,37 @@
+@media (min-width: 1200px) {
+	.container {
+		width: 1140px;
+	}
+}
+
+::selection {
+  background: #275926; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: #275926; /* Gecko Browsers */
+  color: #fff;
+}
+
+.pagination>.active {
+	>a,
+	>span, 
+	>a:hover, 
+	>span:hover, 
+	>a:focus, 
+	>span:focus { 
+		background-color: #5585B3;
+		border-color: #4477A3;
+	}
+}
+.pagination>li>a, 
+.pagination>li>span {
+	@include transition(all 0.25s linear);
+}
+
+tr.strikeout td {
+	color: red;
+  	>a {
+	  color: red;
+	}
+}

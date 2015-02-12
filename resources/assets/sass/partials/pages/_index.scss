@@ -1,0 +1,245 @@
+@import "../snippets/features";
+
+#home {
+
+  #hero {
+    overflow: hidden;
+    background: $primary-color;
+    background-size: cover;
+
+    background-position: center 16%;
+    height: 620px;
+    position: relative;
+    top: -100px;
+    padding-top: 150px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+
+    @media (max-width: 991px) {
+      padding-top: 100px;
+    }
+
+    @media (max-width: 767px) {
+      height: 350px;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
+      background: -moz-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
+      background: -o-linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
+      background: linear-gradient(right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.1) 43%, rgba(0, 0, 0, 0.35) 71%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(6, 13, 32, 0.10);
+    }
+
+    .container {
+      position: relative;
+      z-index: 33;
+    }
+
+    h1.hero-text {
+      font-family: $lato;
+      margin-top: 50px;
+      line-height: 52px;
+      text-align: left;
+      font-size: 37px;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: .3px;
+      color: white;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+      -webkit-animation-duration: 1s;
+
+      @media (max-width: 767px) {
+        font-size: 20px;
+        line-height: 38px;
+        margin-top: 0;
+        text-align: center;
+      }
+    }
+
+    .sub-text {
+      -webkit-font-smoothing: antialiased;
+      width: 50%;
+      margin-top: 30px;
+      font-family: $lato;
+      color: white;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 28px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-animation-duration: 1s;
+
+      @media (max-width: 991px) {
+        width: 70%;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+      }
+
+      span {
+        background-color: #231F20;
+        padding: 2px;
+      }
+
+    }
+
+    .download {
+      @include animationDelay(0.6s);
+      margin-top: 30px;
+      color: white !important;
+      font-size: 35px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+      @media (max-width: 767px) {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0px !important;
+
+        li {
+          display: inline;
+          padding-right: 10px;
+
+          a {
+            color: white;
+          }
+
+        }
+
+      }
+
+    }
+
+    .img {
+      position: absolute;
+      top: 0px;
+      left: 725px;
+      width: 346px;
+      height: 400px;
+      background-image: url("../../images/ingress-cutout.png");
+      background-repeat: no-repeat;
+
+      @media(max-width: 991px) {
+        display: none;
+      }
+    }
+  }
+
+  #features {
+    /* mixin found in partials/snippets */
+    @include features-section;
+
+    margin-top: 20px;
+
+    @media(max-width: 767px) {
+      margin-top: 0;
+    }
+  }
+
+  #frogs {
+    -webkit-font-smoothing: antialiased;
+    background: black;
+    background: -webkit-linear-gradient(top, #332d2f 0, black 100%);
+    background: -moz-linear-gradient(top, #332d2f 0, black 100%);
+    background: -o-linear-gradient(top, #332d2f 0, black 100%);
+    background: linear-gradient(top, #332d2f 0, black 100%);
+    color: white;
+    text-align: center;
+    background-size: cover;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #e1e1e1;
+    @media (max-width: 767px) {
+      margin-top: 20px;
+    }
+  }
+
+  #equipment {
+    -webkit-font-smoothing: antialiased;
+    border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+    background: $primary-color;
+    background: -webkit-linear-gradient(top, $secondary-color 0, $primary-color 100%);
+    background: -moz-linear-gradient(top, $secondary-color 0, $primary-color 100%);
+    background: -o-linear-gradient(top, $secondary-color 0, $primary-color 100%);
+    background: linear-gradient(top, $secondary-color 0, $primary-color 100%);
+    margin-top: 110px;
+    padding-top: 45px;
+    padding-bottom: 70px;
+
+    .header {
+      text-align: center;
+      font-family: $lato;
+
+      @media (max-width: 991px) {
+        margin-bottom: 25px;
+      }
+
+      h3 {
+        font-size: 29px;
+        color: white;
+        line-height: 25px;
+        font-weight: 400;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+        @media(max-width: 767px) {
+          font-size: 24px;
+          line-height: 29px;
+        }
+      }
+      h4 {
+        font-size: 21px;
+        color: $secondary-color;
+        background-color: white;
+        padding: 10px;
+        line-height: 25px;
+        font-weight: 400;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+        @media(max-width: 767px) {
+          font-size: 17px;
+          line-height: 24px;
+        }
+      }
+      img {
+        margin: 0 auto;
+      }
+      p {
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        color: #F0F0F0;
+        font-weight: 400;
+        line-height: 25px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        @include button-variant($secondary-color, white, $secondary-color);
+      }
+    }
+
+  }
+}
