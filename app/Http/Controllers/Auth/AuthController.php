@@ -1,16 +1,17 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
+use Laravel\Socialite\Facades\Socialite;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Support\Facades\App;
 use Msenl\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
+use Diego1araujo\Titleasy\Titleasy as Title;
 
 class AuthController extends Controller
 {
@@ -33,7 +34,7 @@ class AuthController extends Controller
      *
      * @param  \Illuminate\Contracts\Auth\Guard $auth
      * @param  \Illuminate\Contracts\Auth\Registrar $registrar
-     * @return void
+     * @param UserRepositoryInterface $user
      */
     public function __construct(Guard $auth, Registrar $registrar, UserRepositoryInterface $user)
     {
@@ -49,24 +50,17 @@ class AuthController extends Controller
         // get data from input
         $code = Input::get('code');
 
-        // get google service
-        $googleService = OAuth::consumer('Google');
-
         // check if code is valid
 
         // if code is provided get user data and sign in
         if (!empty($code)) {
 
-            // This was a callback request from google, get the token
-            $token = $googleService->requestAccessToken($code);
-
-            // Send a request with it
-            $result = json_decode($googleService->request('https://www.googleapis.com/oauth2/v1/userinfo'), true);
+            $result = Socialite::with('google')->user();
 
             $user = $this->user->findByEmail($result['email']);
 
             if (!$user) {
-                return Redirect::action('Msenl\Controllers\AuthController@register')->with('register', $result);
+                return Redirect::action('Auth\AuthController@register')->with('register', $result);
             }
 
             $user->avatar = $result['picture'];
@@ -79,10 +73,8 @@ class AuthController extends Controller
         } // if not ask for permission first
         else {
             // get googleService authorization
-            $url = $googleService->getAuthorizationUri();
+            return Socialite::with('google')->redirect();
 
-            // return to google login url
-            return Redirect::to((string)$url);
         }
     }
 
@@ -91,42 +83,30 @@ class AuthController extends Controller
 
         $register = Session::pull('register');
 
-        if ($register OR Session::has('_old_input')) {
-            $title = Title::put('Register');
-            $description = 'This is the first step of the verification process.';
+        $title = Title::put('Register');
+        $description = 'This is the first step of the verification process.';
 
-            $levels = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
+        $levels = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
 
-            return View::make('pub.register', compact('title', 'description', 'register', 'levels'));
-        }
+        return View::make('pub.register', compact('title', 'description', 'register', 'levels'));
 
-        App::abort('404');
     }
 
     public function submit()
     {
-        $user = new \User;
-        $user->name = Input::get('name');
-        $user->email = Input::get('email');
-        $user->plusprofile = Input::get('link');
-        $user->agent = Input::get('agent');
-        $user->faction = Input::get('faction');
-        $user->level = Input::get('level');
-        $user->avatar = Input::get('avatar');
-        if ($user->save()) {
+        $form = $this->user->getForm();
+
+        if ($form->isValid()) {
+
+            $user = $this->user->store($form->getInputData());
+
             Auth::login($user);
 
             return Redirect::to('/')->with('message', 'Thanks for registering!');
         } else {
-            return Redirect::back()->withErrors($user->errors());
+            return Redirect::back()->withErrors($form->getErrors())->withInput();;
         }
     }
 
-    public function logout()
-    {
-        Auth::logout();
-
-        return Redirect::back();
-    }
 
 }

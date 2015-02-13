@@ -24,12 +24,23 @@ abstract class AbstractRepository {
     }
 
     /**
-     * @param integer $id
+     * @param int $id
      * @return mixed
      */
-    public function getById(integer $id)
+    public function getById(int $id)
     {
         return $this->model->find($id);
+    }
+
+    /**
+     * Get a new instance of the model.
+     *
+     * @param  array  $attributes
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getNew(array $attributes = array())
+    {
+        return $this->model->newInstance($attributes);
     }
 
 }

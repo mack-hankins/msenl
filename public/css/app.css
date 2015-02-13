@@ -1537,8 +1537,7 @@ a:focus, button:focus {
     animation-delay: 0.6s;
     margin-top: 30px;
     color: white !important;
-    font-size: 35px;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    font-size: 35px; }
     @media (max-width: 767px) {
       #home #hero .download {
         margin-top: 30px;
@@ -1548,9 +1547,11 @@ a:focus, button:focus {
       padding: 0px !important; }
       #home #hero .download ul li {
         display: inline;
-        padding-right: 10px; }
+        padding-right: 10px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9); }
         #home #hero .download ul li a {
-          color: white; }
+          color: white;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9); }
   #home #hero .img {
     position: absolute;
     top: 0px;

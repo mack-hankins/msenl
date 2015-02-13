@@ -61,13 +61,13 @@
                                         <a href="#"><i class="fa fa-user"></i> Profile</a>
                                     </li>
                                     <li>
-                                        <a href="{{ action('Msenl\Http\Controllers\AuthController@logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                                        <a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                                     </li>
                                 </ul>
                             </li>
                         @else
                             <li class="no-hover"><a
-                                        href="{{ action('Msenl\Http\Controllers\AuthController@login') }}">
+                                        href="{{ action('Auth\AuthController@login') }}">
                                     <button class="btn btn-sm login-button"><i class="fa fa-google-plus"></i> Login
                                     </button>
                                 </a></li>
@@ -148,7 +148,7 @@
                         &copy; Mississippi Enlightened {{ date('Y') }}. All Rights Reserved.
                     </div>
                     <div class="col-md-6 right">
-                        Built with <a href="http://laravel.com/">Laravel</a> by <a href="http://www.mackhankins.com">Mack Hankins</a>
+                        Built by <a href="http://www.mackhankins.com">Mack Hankins</a>
                     </div>
                 </div>
             </div>
