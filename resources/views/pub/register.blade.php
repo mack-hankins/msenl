@@ -13,7 +13,7 @@
                         {!! Former::text('name')->value($register['name'])->readonly()->required() !!}
                         {!! Former::text('link')->label('Google+ Profile')->value($register['link'])->readonly()->required() !!}
                         {!! Former::text('email')->label('Google+ Email')->value($register['email'])->readonly()->required() !!}
-                        {!! Former::text('agent')->label('Agent Name')->required() !!}
+                        {!! Former::text('agent')->label('Agent Name') !!}
                         {!! Former::inline_radios('faction')
                         ->radios([
                             'enlightened' => ['value' => '1'],

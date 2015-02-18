@@ -153,6 +153,7 @@ return [
 		'Former\FormerServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Diego1araujo\Titleasy\ServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
 
 	],
 
@@ -205,6 +206,7 @@ return [
 		'Former' => 'Former\Facades\Former',
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
 		'Title' => 'Diego1araujo\Titleasy\Facade',
+        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 
 	],
 

@@ -5,6 +5,7 @@ use Msenl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Msenl\Http\Requests\RegisterRequest;
 use Msenl\Repositories\UserRepositoryInterface;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -50,8 +51,6 @@ class AuthController extends Controller
         // get data from input
         $code = Input::get('code');
 
-        // check if code is valid
-
         // if code is provided get user data and sign in
         if (!empty($code)) {
 
@@ -92,20 +91,15 @@ class AuthController extends Controller
 
     }
 
-    public function submit()
+    public function submit(RegisterRequest $request)
     {
-        $form = $this->user->getForm();
 
-        if ($form->isValid()) {
+        $user = $this->user->store($request->all());
 
-            $user = $this->user->store($form->getInputData());
+        Auth::login($user);
 
-            Auth::login($user);
+        return Redirect::to('/')->with('message', 'Thanks for registering!');
 
-            return Redirect::to('/')->with('message', 'Thanks for registering!');
-        } else {
-            return Redirect::back()->withErrors($form->getErrors())->withInput();;
-        }
     }
 
 

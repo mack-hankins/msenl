@@ -9,10 +9,13 @@
   "type": "project",
   "require": {
     "laravel/framework": "5.0.*",
+
     "laravel/socialite": "2.0.*@dev",
     "appitventures/phpgmaps": "2.0.*@dev",
     "anahkiasen/former": "~4.0@dev",
     "diego1araujo/titleasy": "dev-master",
+    "zizaco/entrust": "dev-laravel-5",
+
     "codeception/codeception": "*",
     "janhenkgerritsen/codeception-laravel5": "~1.0"
   },

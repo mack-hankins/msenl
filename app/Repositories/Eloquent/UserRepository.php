@@ -5,7 +5,6 @@ namespace Msenl\Repositories\Eloquent;
 
 
 use Msenl\Repositories\UserRepositoryInterface;
-use Msenl\Forms\RegisterForm;
 use Msenl\User;
 
 class UserRepository extends AbstractRepository implements UserRepositoryInterface {
@@ -41,11 +40,6 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         $user->avatar = $data['avatar'];
         $user->save();
         return $user;
-    }
-
-    public function getForm()
-    {
-        return new RegisterForm();
     }
 
     public function update($id, array $data)
