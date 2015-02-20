@@ -194,11 +194,6 @@ textarea.form-control {
 .pagination > li > a, .pagination > li > span {
   transition: all 0.25s linear; }
 
-tr.strikeout td {
-  color: red; }
-  tr.strikeout td > a {
-    color: red; }
-
 /* components */
 /***
 Customized Bootstrap Buttons
@@ -883,9 +878,9 @@ Forms
   box-shadow: none;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
   .form-control:focus {
-    border-color: #999;
+    border-color: #307131 !important;
     outline: 0;
-    box-shadow: none; }
+    box-shadow: none !important; }
   .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     cursor: not-allowed;
     background-color: #eeeeee; }
@@ -1108,9 +1103,9 @@ h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
 /* Links */
 a {
   text-shadow: none;
-  color: #47A243; }
+  color: #307131; }
   a:hover {
-    color: #2f6c2d; }
+    color: #193b1a; }
   a:focus, a:hover, a:active {
     outline: 0; }
 
@@ -1687,6 +1682,8 @@ a:focus, button:focus {
   @media (max-width: 767px) {
     #home #frogs {
       margin-top: 20px; } }
+  #home #frogs a {
+    color: white; }
 #home #equipment {
   -webkit-font-smoothing: antialiased;
   border-top: 1px solid #EAEAEA;

@@ -8,12 +8,11 @@
             <div class="col-md-12">
                 <div class="portlet light bordered">
                     <div class="portlet-body">
-                        {!! Former::framework('TwitterBootstrap') !!}
                         {!! Former::open()->action(URL::action('Auth\AuthController@submit')) !!}
                         {!! Former::text('name')->value($register['name'])->readonly()->required() !!}
                         {!! Former::text('link')->label('Google+ Profile')->value($register['link'])->readonly()->required() !!}
                         {!! Former::text('email')->label('Google+ Email')->value($register['email'])->readonly()->required() !!}
-                        {!! Former::text('agent')->label('Agent Name') !!}
+                        {!! Former::text('agent')->label('Agent Name')->required() !!}
                         {!! Former::inline_radios('faction')
                         ->radios([
                             'enlightened' => ['value' => '1'],
