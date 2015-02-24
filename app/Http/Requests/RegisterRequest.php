@@ -1,7 +1,5 @@
 <?php namespace Msenl\Http\Requests;
 
-use Msenl\Http\Requests\Request;
-
 class RegisterRequest extends Request
 {
 

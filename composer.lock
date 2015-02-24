@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28364505f4191ae3d25c4b92898a8f77",
+    "hash": "338968162f87c95243fb53c1d396a0fd",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -103,54 +103,6 @@
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
             "time": "2015-01-16 16:18:58"
-        },
-        {
-            "name": "appitventures/phpgmaps",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/appitventures/Phpgmaps.git",
-                "reference": "f2f0d1f38803898dd38b08bbeebfa31ef4e9aaf1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/appitventures/Phpgmaps/zipball/f2f0d1f38803898dd38b08bbeebfa31ef4e9aaf1",
-                "reference": "f2f0d1f38803898dd38b08bbeebfa31ef4e9aaf1",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-laravel4": "1.0-dev",
-                    "dev-develop": "2.0-dev",
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Appitventures\\Phpgmaps\\": "src/Appitventures/Phpgmaps/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Michael Hopkins",
-                    "email": "michael@appitventures.com",
-                    "role": "developer"
-                }
-            ],
-            "description": "A codeigniter library that has been modified a bit so that it's laravel friendly",
-            "keywords": [
-                "biostall",
-                "googlemaps",
-                "laravel",
-                "phpgmaps"
-            ],
-            "time": "2015-02-15 21:39:31"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1064,16 +1016,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.5",
+            "version": "v5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b1aea041cbc0cd54563e2d3709a54a71eed57653"
+                "reference": "43637b796f1ac0b1a960984231251ff04b438006"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b1aea041cbc0cd54563e2d3709a54a71eed57653",
-                "reference": "b1aea041cbc0cd54563e2d3709a54a71eed57653",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/43637b796f1ac0b1a960984231251ff04b438006",
+                "reference": "43637b796f1ac0b1a960984231251ff04b438006",
                 "shasum": ""
             },
             "require": {
@@ -1185,7 +1137,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-13 19:10:59"
+            "time": "2015-02-20 16:22:21"
         },
         {
             "name": "laravel/socialite",
@@ -1193,12 +1145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "7f96a35e8976faea4c282abcd5c196ef8ddfab7c"
+                "reference": "5ecfde2b908f99d21545a1be385fbd6f78e6444c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/7f96a35e8976faea4c282abcd5c196ef8ddfab7c",
-                "reference": "7f96a35e8976faea4c282abcd5c196ef8ddfab7c",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/5ecfde2b908f99d21545a1be385fbd6f78e6444c",
+                "reference": "5ecfde2b908f99d21545a1be385fbd6f78e6444c",
                 "shasum": ""
             },
             "require": {
@@ -1239,7 +1191,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2015-02-14 01:56:05"
+            "time": "2015-02-20 20:07:14"
         },
         {
             "name": "league/flysystem",
@@ -3839,7 +3791,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "laravel/socialite": 20,
-        "appitventures/phpgmaps": 20,
         "anahkiasen/former": 20,
         "diego1araujo/titleasy": 20,
         "zizaco/entrust": 20
