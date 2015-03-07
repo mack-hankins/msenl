@@ -1,6 +1,6 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
-use Laravel\Socialite\Facades\Socialite;
+use Socialize;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
@@ -54,15 +54,15 @@ class AuthController extends Controller
         // if code is provided get user data and sign in
         if (!empty($code)) {
 
-            $result = Socialite::with('google')->user();
+            $result = Socialize::with('google')->user();
 
-            $user = $this->user->findByEmail($result['email']);
+            $user = $this->user->findByEmail($result->email);
 
             if (!$user) {
                 return Redirect::action('Auth\AuthController@register')->with('register', $result);
             }
 
-            $user->avatar = $result['picture'];
+            $user->avatar = $result->avatar;
             $user->save();
 
             Auth::loginUsingId($user->id);
@@ -70,9 +70,10 @@ class AuthController extends Controller
             return Redirect::intended('/');
 
         } // if not ask for permission first
-        else {
+        else
+        {
             // get googleService authorization
-            return Socialite::with('google')->redirect();
+            return Socialize::with('google')->redirect();
 
         }
     }
@@ -81,6 +82,8 @@ class AuthController extends Controller
     {
 
         $register = Session::pull('register');
+
+        //dd($register);
 
         $title = Title::put('Register');
         $description = 'This is the first step of the verification process.';

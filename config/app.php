@@ -154,6 +154,7 @@ return [
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Diego1araujo\Titleasy\ServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Toin0u\Geocoder\GeocoderServiceProvider',
 
 	],
 
@@ -207,6 +208,7 @@ return [
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
 		'Title' => 'Diego1araujo\Titleasy\Facade',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        'Geocoder' => 'Toin0u\Geocoder\GeocoderFacade',
 
 	],
 

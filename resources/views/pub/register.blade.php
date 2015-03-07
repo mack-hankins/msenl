@@ -9,9 +9,9 @@
                 <div class="portlet light bordered">
                     <div class="portlet-body">
                         {!! Former::open()->action(URL::action('Auth\AuthController@submit')) !!}
-                        {!! Former::text('name')->value($register['name'])->readonly()->required() !!}
-                        {!! Former::text('link')->label('Google+ Profile')->value($register['link'])->readonly()->required() !!}
-                        {!! Former::text('email')->label('Google+ Email')->value($register['email'])->readonly()->required() !!}
+                        {!! Former::text('name')->value($register->name)->readonly()->required() !!}
+                        {!! Former::text('link')->label('Google+ Profile')->value($register->user['url'])->readonly()->required() !!}
+                        {!! Former::text('email')->label('Google+ Email')->value($register->email)->readonly()->required() !!}
                         {!! Former::text('agent')->label('Agent Name')->required() !!}
                         {!! Former::inline_radios('faction')
                         ->radios([
@@ -23,7 +23,7 @@
                             ->options($levels)
                             ->required()
                         !!}
-                        {!! Former::hidden('avatar')->value($register['picture']) !!}
+                        {!! Former::hidden('avatar')->value($register->avatar) !!}
                         {!! Former::actions()
                            ->large_primary_submit('Complete')
                            ->large_inverse_reset('Reset')
