@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Diego1araujo\Titleasy\Titleasy as Title;
 
-class AuthController extends Controller
-{
+class AuthController extends Controller {
 
     /*
     |--------------------------------------------------------------------------
@@ -35,13 +34,13 @@ class AuthController extends Controller
      *
      * @param  \Illuminate\Contracts\Auth\Guard $auth
      * @param  \Illuminate\Contracts\Auth\Registrar $registrar
-     * @param UserRepositoryInterface $user
+     * @param UserRepositoryInterface $UserRepository
      */
-    public function __construct(Guard $auth, Registrar $registrar, UserRepositoryInterface $user)
+    public function __construct(Guard $auth, Registrar $registrar, UserRepositoryInterface $UserRepository)
     {
         $this->auth = $auth;
         $this->registrar = $registrar;
-        $this->user = $user;
+        $this->user = $UserRepository;
 
         $this->middleware('guest', ['except' => 'getLogout']);
     }
@@ -52,13 +51,15 @@ class AuthController extends Controller
         $code = Input::get('code');
 
         // if code is provided get user data and sign in
-        if (!empty($code)) {
+        if (!empty($code))
+        {
 
             $result = Socialize::with('google')->user();
 
             $user = $this->user->findByEmail($result->email);
 
-            if (!$user) {
+            if (!$user)
+            {
                 return Redirect::action('Auth\AuthController@register')->with('register', $result);
             }
 
@@ -94,6 +95,10 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * @param RegisterRequest $request
+     * @return mixed
+     */
     public function submit(RegisterRequest $request)
     {
 

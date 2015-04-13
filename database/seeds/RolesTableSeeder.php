@@ -1,28 +1,29 @@
 <?php
 
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Msenl\Role;
+use Msenl\User;
 
 class RolesTableSeeder extends Seeder {
 
-	public function run()
-	{
-		DB::table('roles')->delete();
+    public function run()
+    {
+        DB::table('roles')->delete();
 
-		$adminRole = new \Role;
-		$adminRole->name = 'adminRole';
-		$adminRole->save();
+        $adminRole = new Role();
+        $adminRole->name = 'admin';
+        $adminRole->save();
 
-		$standRole = new \Role;
-		$standRole->name = 'verifiedRole';
-		$standRole->save();
+        $standRole = new Role();
+        $standRole->name = 'verified';
+        $standRole->save();
 
-		$modRole = new \Role;
-		$modRole->name = 'modRole';
-		$modRole->save();
+        $modRole = new Role();
+        $modRole->name = 'moderator';
+        $modRole->save();
 
-		$user = \User::where('email','=',$_ENV['ADMIN_EMAIL'])->first();
-		$user->attachRole( $adminRole );
-
-
-	}
+        $user = User::where('email', '=', $_ENV['ADMIN_EMAIL'])->first();
+        $user->attachRole($adminRole);
+    }
 }
