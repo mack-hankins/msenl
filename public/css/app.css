@@ -679,11 +679,12 @@ Form Layouts
 /* Help blocks */
 .help-block {
   margin-top: 5px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  color: #245524 !important; }
 
 .help-inline {
   font-size: 13px;
-  color: #737373;
+  color: #245524;
   display: inline-block;
   padding: 5px; }
 

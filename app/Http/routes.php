@@ -5,7 +5,8 @@ Route::get('/quickstart', 'PagesController@QuickStart');
 
 /*Login and Register*/
 Route::get('/login', 'Auth\AuthController@login');
-Route::get('/logout', ['as' => 'logout', function () {
+Route::get('/logout', ['as' => 'logout', function ()
+{
 
     Auth::logout();
 

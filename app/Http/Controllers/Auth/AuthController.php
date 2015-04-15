@@ -1,5 +1,6 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
+use Request;
 use Socialize;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
@@ -12,7 +13,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
-use Diego1araujo\Titleasy\Titleasy as Title;
+use Title;
+use Toin0u\Geocoder\Facade\Geocoder;
 
 class AuthController extends Controller {
 
@@ -82,9 +84,19 @@ class AuthController extends Controller {
     public function register()
     {
 
-        $register = Session::pull('register');
+        if (Session::has('register'))
+        {
+            $googleplus = Session::pull('register');
+            $register['name'] = $googleplus->name;
+            $register['email'] = $googleplus->email;
+            $register['url'] = $googleplus->user['url'];
+            $register['avatar'] = $googleplus->avatar;
+        }
+        else
+        {
+            $register =  Request::old();
+        }
 
-        //dd($register);
 
         $title = Title::put('Register');
         $description = 'This is the first step of the verification process.';
@@ -106,7 +118,7 @@ class AuthController extends Controller {
 
         Auth::login($user);
 
-        return Redirect::to('/')->with('message', 'Thanks for registering!');
+        return Redirect::to('/')->with('messsage', 'Thanks for registering!');
 
     }
 

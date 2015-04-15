@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration {
 			$table->integer('level');
 			$table->integer('faction');
 			$table->string('avatar');
+            $table->string('city');
+            $table->string('state');
+            $table->string('postalcode');
+            $table->string('country');
 			$table->rememberToken();
 			$table->timestamps();
 		});

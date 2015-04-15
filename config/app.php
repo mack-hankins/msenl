@@ -145,6 +145,7 @@ return [
 		'Msenl\Providers\EventServiceProvider',
 		'Msenl\Providers\RouteServiceProvider',
 		'Msenl\Providers\UserServiceProvider',
+        'Msenl\Providers\GeoCodingServiceProvider',
 
 		/*
 		 * Third Party Providers

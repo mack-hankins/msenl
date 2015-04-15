@@ -27,11 +27,12 @@ Form Layouts
 .help-block {
     margin-top: 5px;
     margin-bottom: 5px;
+    color: $secondary-color !important;
 }
 
 .help-inline {
   font-size: 13px;
-  color: #737373;
+  color: $secondary-color;
   display: inline-block;
   padding: 5px;
 }
