@@ -20,7 +20,8 @@
     "anahkiasen/former": "~4.0@dev",
     "diego1araujo/titleasy": "dev-master",
     "zizaco/entrust": "dev-laravel-5",
-    "toin0u/geocoder-laravel": "dev-master"
+    "toin0u/geocoder-laravel": "dev-master",
+    "barryvdh/laravel-ide-helper": "^2.0"
   },
   "require-dev": {
 
@@ -45,6 +46,9 @@
     ],
     "post-update-cmd": [
       "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
+      "php artisan ide-helper:meta",
+      "php artisan ide-helper:models",
       "php artisan optimize"
     ],
     "post-create-project-cmd": [

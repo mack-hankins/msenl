@@ -88,7 +88,7 @@
                         <ul class="connect">
                             <li><a href="https://plus.google.com/u/0/communities/109608094049727300099" title="Mississippi Enlightened on Google+"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="https://msenl.slack.com/"><i class="fa fa-slack" title="Mississippi Enlightened Slack"></i></a></li>
-                            <li><a href="https://github.com/mack-hankins/msenl" title="Github Repo"><i class="fa fa-github"></i></a></li>
+                            <li><a href="https://github.com/mackhankins/msenl" title="Github Repo"><i class="fa fa-github"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 menu">

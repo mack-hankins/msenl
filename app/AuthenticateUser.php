@@ -38,7 +38,7 @@ class AuthenticateUser {
 
         if (!$hasCode) return $this->getAuthorizationFirst();
 
-        $result = $this->socialite->driver('google')->user();
+        $result = $this->socialite->driver($provider)->user();
 
         $user = $this->users->findByEmailOrProviderId($result);
 

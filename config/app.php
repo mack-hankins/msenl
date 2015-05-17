@@ -150,6 +150,7 @@ return [
 		/*
 		 * Third Party Providers
 		 */
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Former\FormerServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Diego1araujo\Titleasy\ServiceProvider',

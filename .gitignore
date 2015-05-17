@@ -5,3 +5,5 @@
 Thumbs.db
 .idea/
 tests/_output/*
+.phpstorm*
+_ide_*

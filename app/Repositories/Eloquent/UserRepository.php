@@ -3,8 +3,6 @@
 
 namespace Msenl\Repositories\Eloquent;
 
-
-use Msenl\Repositories\GeoCodingRepositoryInterface;
 use Msenl\Repositories\UserRepositoryInterface;
 use Msenl\User;
 
@@ -19,10 +17,9 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
      * Constructor
      * @param User $model
      */
-    public function __construct(User $model, GeoCodingRepositoryInterface $GeoCodingRepository)
+    public function __construct(User $model)
     {
         $this->model = $model;
-        $this->geocoding = $GeoCodingRepository;
     }
 
     public function findByEmail($result)

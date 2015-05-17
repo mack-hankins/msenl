@@ -10,7 +10,7 @@ use Diego1araujo\Titleasy\Titleasy as Title;
 use Toin0u\Geocoder\GeocoderFacade as Geocoder;
 
 
-class EnemyPortalsController extends \BaseController {
+class EnemyPortalsController extends Controller {
 
     public function index($agent)
     {
