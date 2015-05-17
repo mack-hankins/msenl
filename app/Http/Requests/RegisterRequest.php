@@ -31,27 +31,8 @@ class RegisterRequest extends Request {
             'email'      => 'required|email|unique:users',
             'url'       => 'required',
             'agent'      => 'required',
-            'postalcode' => 'required',
-            'faction'    => 'required',
             'level'      => 'required',
         ];
-    }
-
-    public function getValidatorInstance()
-    {
-        $validator = parent::getValidatorInstance();
-
-        $validator->after(function () use ($validator)
-        {
-
-            $geocode = $this->geocoding->reverse($validator->getData()['postalcode']);
-
-            if (!$geocode)
-                $validator->errors()->add('postalcode', 'Not a valid postal or zip code');
-        });
-
-
-        return $validator;
     }
 
 }

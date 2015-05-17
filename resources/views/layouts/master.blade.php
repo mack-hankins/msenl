@@ -61,13 +61,13 @@
                                         <a href="#"><i class="fa fa-user"></i> Profile</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                                        <a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                                     </li>
                                 </ul>
                             </li>
                         @else
                             <li class="no-hover"><a
-                                        href="{{ action('Auth\AuthController@login') }}">
+                                        href="{{ action('Auth\AuthController@login', ['provider' => 'google']) }}">
                                     <button class="btn btn-sm login-button"><i class="fa fa-google-plus"></i> Login
                                     </button>
                                 </a></li>

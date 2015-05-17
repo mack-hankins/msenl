@@ -4,16 +4,15 @@ Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
 Route::get('/quickstart', 'PagesController@QuickStart');
 
 /*Login and Register*/
-Route::get('/login', 'Auth\AuthController@login');
-Route::get('/logout', ['as' => 'logout', function ()
+Route::get('/auth/logout', ['as' => 'logout', function ()
 {
-
     Auth::logout();
 
     return Redirect::back();
 }]);
-Route::get('/register', 'Auth\AuthController@register');
-Route::post('/submit', 'Auth\AuthController@submit');
+Route::get('/auth/{provider?}', 'Auth\AuthController@login');
+Route::get('/auth/register', 'Auth\AuthController@register');
+Route::post('/auth/submit', 'Auth\AuthController@submit');
 
 /*Enemy Portals*/
 Route::get('/enemy-portals/submit', 'Msenl\Http\Controllers\EnemyPortalsController@submit');

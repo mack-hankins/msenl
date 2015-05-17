@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Msenl\Providers;
 
 use Illuminate\Support\ServiceProvider;
