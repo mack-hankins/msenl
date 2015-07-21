@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <title>{{ Title::get('Mississippi Enlightened', '|', TRUE) }}</title>
+        <title>{{ Title::siteName('Mississippi Enlightened') }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <!-- stylesheets -->

@@ -153,9 +153,8 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Former\FormerServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider',
-		'Diego1araujo\Titleasy\ServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
-        'Toin0u\Geocoder\GeocoderServiceProvider',
+		'Radiula\Title\TitleServiceProvider',
 
 	],
 
@@ -207,10 +206,8 @@ return [
 
 		'Former' => 'Former\Facades\Former',
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
-		'Title' => 'Diego1araujo\Titleasy\Facade',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
-        'Geocoder' => 'Toin0u\Geocoder\GeocoderFacade',
-
+        'Title' => 'Radiula\Title\Facades\Title',
 	],
 
 ];
