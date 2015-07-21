@@ -1,6 +1,6 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
-use Illuminate\Http\Request as Request;
+use Illuminate\Http\Request;
 use Msenl\Http\Controllers\Controller;
 use Msenl\Http\Requests\RegisterRequest;
 use Msenl\Repositories\UserRepositoryInterface;
@@ -75,7 +75,7 @@ class AuthController extends Controller {
 
         $user = $this->userRepository->store($registerRequest->all());
 
-        $this->auth->login($user);
+        $this->auth->login($user, true);
 
         return $this->userHasLoggedIn($user);
 

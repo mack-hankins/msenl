@@ -6,10 +6,10 @@ namespace Msenl\Repositories;
 
 interface UserRepositoryInterface {
 
-    public function findByEmail($string);
-    public function findByEmailOrProviderId($string);
+    public function findByEmail($data);
+    public function findByEmailOrProvider($data, $provider);
     public function store(array $data);
-    public function updateSocial($data);
+    public function updateSocial($user, $data, $provider);
     public function update($id, array $data);
 
 }

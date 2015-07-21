@@ -27,9 +27,9 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         return $this->model->where('email','=',$result->email)->first();
     }
 
-    public function findByEmailOrProviderId($result)
+    public function findByEmailOrProvider($data, $provider)
     {
-        return $this->model->where('email','=',$result->email)->orWhere('provider_id','=',$result->id)->first();
+        return $this->model->where('email','=',$data->email)->orWhere('provider','=',$provider)->where('provider_id','=',$data->id)->first();
     }
 
     public function store(array $data)
@@ -49,11 +49,12 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         return $user;
     }
 
-    public function updateSocial($data)
+    public function updateSocial($user, $data, $provider)
     {
-        $user = $this->findByEmailOrProviderId($data);
         $user->email = $data->email;
         $user->avatar = $data->avatar;
+        $user->provider = $provider;
+        $user->provider_id = $data->id;
         $user->save();
     }
 

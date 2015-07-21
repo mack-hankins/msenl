@@ -40,13 +40,13 @@ class AuthenticateUser {
 
         $result = $this->socialite->driver($provider)->user();
 
-        $user = $this->users->findByEmailOrProviderId($result);
+        $user = $this->users->findByEmailOrProvider($result, $provider);
 
         if (!$user) return $listener->register($result, $provider);
 
-        $this->users->updateSocial($result);
+        $this->users->updateSocial($user, $result, $provider);
 
-        $this->auth->login($user);
+        $this->auth->login($user, true);
 
         return $listener->userHasLoggedIn($user);
 
