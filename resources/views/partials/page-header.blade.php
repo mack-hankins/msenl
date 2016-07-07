@@ -8,7 +8,7 @@
     </div>
 </div>
 
-@if ($errors->has())
+@if (!empty($errors) AND ($errors->has()))
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger">
             {{ $error }}
