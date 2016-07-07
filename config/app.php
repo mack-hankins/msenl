@@ -141,8 +141,6 @@ return [
 		 * Application Service Providers...
 		 */
         'Msenl\Providers\AppServiceProvider',
-        'Msenl\Providers\BusServiceProvider',
-        'Msenl\Providers\ConfigServiceProvider',
         'Msenl\Providers\EventServiceProvider',
         'Msenl\Providers\RouteServiceProvider',
         'Msenl\Providers\UserServiceProvider',
