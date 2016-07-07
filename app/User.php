@@ -1,4 +1,6 @@
-<?php namespace Msenl;
+<?php
+
+namespace Msenl;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

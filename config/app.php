@@ -141,7 +141,7 @@ return [
 		 * Application Service Providers...
 		 */
         Msenl\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        Msenl\Providers\AuthServiceProvider::class,
         Msenl\Providers\EventServiceProvider::class,
         Msenl\Providers\RouteServiceProvider::class,
         Msenl\Providers\UserServiceProvider::class,
@@ -150,10 +150,10 @@ return [
         /*
 		 * Third Party Providers
 		 */
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
         'Former\FormerServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider',
         'Radiula\Title\TitleServiceProvider',
 
     ],
@@ -204,9 +204,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
+        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
+        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'Former' => 'Former\Facades\Former',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'Title' => 'Radiula\Title\Facades\Title',
     ],
 
