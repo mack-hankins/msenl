@@ -1,7 +1,7 @@
 <?php namespace Msenl\Commands;
 
-abstract class Command {
+abstract class Command
+{
 
-	//
-
+    //
 }

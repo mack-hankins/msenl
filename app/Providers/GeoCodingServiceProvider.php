@@ -3,10 +3,10 @@
 
 namespace Msenl\Providers;
 
-
 use Illuminate\Support\ServiceProvider;
 
-class GeoCodingServiceProvider extends ServiceProvider{
+class GeoCodingServiceProvider extends ServiceProvider
+{
 
     public function register()
     {

@@ -4,7 +4,8 @@ namespace Msenl\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class UserServiceProvider extends ServiceProvider {
+class UserServiceProvider extends ServiceProvider
+{
 
     public function register()
     {
@@ -12,6 +13,4 @@ class UserServiceProvider extends ServiceProvider {
 
         $app->bind('Msenl\Repositories\UserRepositoryInterface', 'Msenl\Repositories\Eloquent\UserRepository');
     }
-
-
 }

@@ -9,27 +9,25 @@ use Illuminate\Support\Facades\Redirect;
 use Diego1araujo\Titleasy\Titleasy as Title;
 use Toin0u\Geocoder\GeocoderFacade as Geocoder;
 
-
-class EnemyPortalsController extends Controller {
+class EnemyPortalsController extends Controller
+{
 
     public function index($agent)
     {
 
-        $content = Cache::rememberForever($agent, function () use ($agent)
-        {
+        $content = Cache::rememberForever($agent, function () use ($agent) {
+        
 
             $portals = \Enemyportals::Owner($agent)->get();
 
             return $portals;
         });
 
-        $markers = Cache::rememberForever($agent . '-markers', function () use ($content)
-        {
+        $markers = Cache::rememberForever($agent . '-markers', function () use ($content) {
+        
 
-            foreach ($content as $newmarker)
-            {
-                if (!$newmarker->dead)
-                {
+            foreach ($content as $newmarker) {
+                if (!$newmarker->dead) {
                     $marker[] = [$newmarker->title, $newmarker->lat, $newmarker->lng, '<div><a href="http://maps.google.com/maps?q=' . $newmarker->lat . ',' . $newmarker->lng . '" target="_blank">Map It</a></div>'];
                 }
             }
@@ -47,15 +45,12 @@ class EnemyPortalsController extends Controller {
 
     private function geocode($lat, $lng)
     {
-        try
-        {
+        try {
             $response = Geocoder::reverse($lat, $lng);
 
             return $response;
-        }
-        catch (\Exception $e)
-        {
-            // No exception will be thrown here
+        } catch (\Exception $e) {
+        // No exception will be thrown here
         }
     }
 
@@ -67,9 +62,7 @@ class EnemyPortalsController extends Controller {
     public function update()
     {
         $owner = strtolower(Input::get('owner'));
-        if (Input::hasFile('json_file'))
-        {
-
+        if (Input::hasFile('json_file')) {
             \Enemyportals::Owner($owner)->delete();
 
             $file = Input::file('json_file')->move(app_path() . '/storage/app', $owner . '.json');
@@ -78,8 +71,7 @@ class EnemyPortalsController extends Controller {
 
             $contents = $contents->portals->idOthers->bkmrk;
 
-            foreach ($contents as $portal)
-            {
+            foreach ($contents as $portal) {
                 $latlng = explode(',', $portal->latlng);
                 $response = $this->geocode($latlng[0], $latlng[1]);
 
@@ -123,5 +115,4 @@ class EnemyPortalsController extends Controller {
 
         return Redirect::back();
     }
-
 }

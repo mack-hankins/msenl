@@ -4,7 +4,8 @@ namespace Msenl\Http\Controllers;
 
 use Radiula\Title\Facades\Title;
 
-class PagesController extends Controller {
+class PagesController extends Controller
+{
 
 
     public function QuickStart()
@@ -14,5 +15,4 @@ class PagesController extends Controller {
 
         return view('pub.quick_start', compact('title', 'description'));
     }
-
 }

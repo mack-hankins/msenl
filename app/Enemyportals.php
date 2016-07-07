@@ -1,15 +1,15 @@
 <?php
 
-class Enemyportals extends \Eloquent {
+class Enemyportals extends \Eloquent
+{
 
-	protected $fillable = [];
+    protected $fillable = [];
 
-	protected $table = 'enemyportals';
+    protected $table = 'enemyportals';
 
 
-	public function scopeOwner($query, $owner)
-	{
-		return $query->where('owner','=',$owner);
-	}
-
+    public function scopeOwner($query, $owner)
+    {
+        return $query->where('owner', '=', $owner);
+    }
 }

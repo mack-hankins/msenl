@@ -4,7 +4,8 @@ use Illuminate\Support\ServiceProvider;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-class ErrorServiceProvider extends ServiceProvider {
+class ErrorServiceProvider extends ServiceProvider
+{
 
     /**
      * Register any error handlers.
@@ -27,5 +28,4 @@ class ErrorServiceProvider extends ServiceProvider {
     {
         //
     }
-
 }

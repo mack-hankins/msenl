@@ -7,8 +7,8 @@ use Laravel\Socialite\Contracts\Factory as Socialite;
 use Illuminate\Contracts\Auth\Guard;
 use Msenl\Repositories\UserRepositoryInterface;
 
-
-class AuthenticateUser {
+class AuthenticateUser
+{
 
 
     /**
@@ -36,13 +36,17 @@ class AuthenticateUser {
     public function execute($hasCode, $listener, $provider)
     {
 
-        if (!$hasCode) return $this->getAuthorizationFirst();
+        if (!$hasCode) {
+            return $this->getAuthorizationFirst();
+        }
 
         $result = $this->socialite->driver($provider)->user();
 
         $user = $this->users->findByEmailOrProvider($result, $provider);
 
-        if (!$user) return $listener->register($result, $provider);
+        if (!$user) {
+            return $listener->register($result, $provider);
+        }
 
         $this->users->updateSocial($user, $result, $provider);
 
@@ -53,10 +57,10 @@ class AuthenticateUser {
     }
 
 
-    private function getAuthorizationFirst() {
+    private function getAuthorizationFirst()
+    {
 
         return $this->socialite->driver('google')->redirect();
 
     }
-
 }

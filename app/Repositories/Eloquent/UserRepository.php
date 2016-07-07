@@ -6,7 +6,8 @@ namespace Msenl\Repositories\Eloquent;
 use Msenl\Repositories\UserRepositoryInterface;
 use Msenl\User;
 
-class UserRepository extends AbstractRepository implements UserRepositoryInterface {
+class UserRepository extends AbstractRepository implements UserRepositoryInterface
+{
 
     /**
      * @var Model
@@ -24,12 +25,12 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
 
     public function findByEmail($result)
     {
-        return $this->model->where('email','=',$result->email)->first();
+        return $this->model->where('email', '=', $result->email)->first();
     }
 
     public function findByEmailOrProvider($data, $provider)
     {
-        return $this->model->where('email','=',$data->email)->orWhere('provider','=',$provider)->where('provider_id','=',$data->id)->first();
+        return $this->model->where('email', '=', $data->email)->orWhere('provider', '=', $provider)->where('provider_id', '=', $data->id)->first();
     }
 
     public function store(array $data)
@@ -74,6 +75,4 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         $user->save();
         return $user;
     }
-
-
 }

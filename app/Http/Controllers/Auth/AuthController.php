@@ -8,7 +8,8 @@ use Illuminate\Contracts\Auth\Guard;
 use Msenl\AuthenticateUser;
 use Title;
 
-class AuthController extends Controller {
+class AuthController extends Controller
+{
 
 
     /**
@@ -90,6 +91,4 @@ class AuthController extends Controller {
         \Session::flash('message', 'Welcome, ' . $user->agent);
         return redirect('/');
     }
-
-
 }
