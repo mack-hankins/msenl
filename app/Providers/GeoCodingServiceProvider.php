@@ -12,6 +12,6 @@ class GeoCodingServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app->bind('Msenl\Repositories\GeoCodingRepositoryInterface', 'Msenl\Repositories\GeoCoding\GeoCodingRepository');
+        $app->bind(\Msenl\Repositories\GeoCodingRepositoryInterface::class, \Msenl\Repositories\GeoCoding\GeoCodingRepository::class);
     }
 }

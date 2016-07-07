@@ -13,7 +13,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Msenl\Http\Controllers';
+    protected $namespace = \Msenl\Http\Controllers::class;
 
     /**
      * Define your route model bindings, pattern filters, etc.

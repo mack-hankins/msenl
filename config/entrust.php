@@ -19,7 +19,7 @@ return array(
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'Msenl\Role',
+    'role' => Msenl\Role::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ return array(
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'Msenl\Permission',
+    'permission' => Msenl\Permission::class,
 
     /*
     |--------------------------------------------------------------------------

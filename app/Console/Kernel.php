@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'Msenl\Console\Commands\Inspire',
+        \Msenl\Console\Commands\Inspire::class,
     ];
 
     /**

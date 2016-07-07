@@ -11,6 +11,6 @@ class UserServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app->bind('Msenl\Repositories\UserRepositoryInterface', 'Msenl\Repositories\Eloquent\UserRepository');
+        $app->bind(\Msenl\Repositories\UserRepositoryInterface::class, \Msenl\Repositories\Eloquent\UserRepository::class);
     }
 }
