@@ -1,4 +1,5 @@
 <?php namespace Msenl\Http\Controllers\Auth;
+
 use Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;

@@ -89,7 +89,7 @@ class EnemyPortalsController extends Controller
             Cache::pull($owner);
             Cache::pull($owner . '-markers');
 
-            return Redirect::action('App\Controllers\Pub\EnemyPortalsController@index', $owner);
+            return Redirect::action('Msenl\Controllers\Pub\EnemyPortalsController@index', $owner);
         }
 
     }
