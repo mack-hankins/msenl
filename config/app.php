@@ -141,6 +141,7 @@ return [
 		 * Application Service Providers...
 		 */
         Msenl\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
         Msenl\Providers\EventServiceProvider::class,
         Msenl\Providers\RouteServiceProvider::class,
         Msenl\Providers\UserServiceProvider::class,
