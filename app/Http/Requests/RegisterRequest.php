@@ -2,7 +2,8 @@
 
 use Msenl\Repositories\GeoCodingRepositoryInterface;
 
-class RegisterRequest extends Request {
+class RegisterRequest extends Request
+{
 
     public function __construct(GeoCodingRepositoryInterface $GeoCodingRepository)
     {
@@ -34,5 +35,4 @@ class RegisterRequest extends Request {
             'level'      => 'required',
         ];
     }
-
 }

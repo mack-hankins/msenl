@@ -1,14 +1,17 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
+use Validator;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Msenl\Http\Controllers\Controller;
 use Msenl\Http\Requests\RegisterRequest;
 use Msenl\Repositories\UserRepositoryInterface;
-use Illuminate\Contracts\Auth\Guard;
+use Msenl\User;
 use Msenl\AuthenticateUser;
 use Title;
 
-class AuthController extends Controller {
+class AuthController extends Controller
+{
 
 
     /**
@@ -30,7 +33,6 @@ class AuthController extends Controller {
     {
 
         $this->middleware('guest', ['except' => 'logout']);
-        $this->auth = $auth;
         $this->userRepository = $userRepository;
     }
 
@@ -91,5 +93,33 @@ class AuthController extends Controller {
         return redirect('/');
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+    }
 
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+    }
 }

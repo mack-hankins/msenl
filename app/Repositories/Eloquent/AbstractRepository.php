@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class AbstractRepository
  * @package Msenl\Repositories\Eloquent
  */
-abstract class AbstractRepository {
+abstract class AbstractRepository
+{
 
     protected $model;
 
@@ -20,7 +21,7 @@ abstract class AbstractRepository {
 
     public function all()
     {
-       return $this->model->all();
+        return $this->model->all();
     }
 
     /**
@@ -42,5 +43,4 @@ abstract class AbstractRepository {
     {
         return $this->model->newInstance($attributes);
     }
-
 }

@@ -2,8 +2,8 @@
 
 namespace Msenl\Repositories;
 
-interface GeoCodingRepositoryInterface {
+interface GeoCodingRepositoryInterface
+{
 
     public function reverse($string);
-
 }

@@ -4,8 +4,8 @@ Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
 Route::get('/quickstart', 'PagesController@QuickStart');
 
 /*Login and Register*/
-Route::get('/auth/logout', ['as' => 'logout', function ()
-{
+Route::get('/auth/logout', ['as' => 'logout', function () {
+
     Auth::logout();
 
     return Redirect::back();

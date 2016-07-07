@@ -2,7 +2,7 @@
 
 return [
 
-	/*
+    /*
 	|--------------------------------------------------------------------------
 	| Third Party Services
 	|--------------------------------------------------------------------------
@@ -14,25 +14,25 @@ return [
 	|
 	*/
 
-	'mailgun' => [
-		'domain' => '',
-		'secret' => '',
-	],
+    'mailgun' => [
+        'domain' => '',
+        'secret' => '',
+    ],
 
-	'mandrill' => [
-		'secret' => '',
-	],
+    'mandrill' => [
+        'secret' => '',
+    ],
 
-	'ses' => [
-		'key' => '',
-		'secret' => '',
-		'region' => 'us-east-1',
-	],
+    'ses' => [
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
+    ],
 
-	'stripe' => [
-		'model'  => 'User',
-		'secret' => '',
-	],
+    'stripe' => [
+        'model'  => 'User',
+        'secret' => '',
+    ],
 
     'google' => [
         'client_id' => env('GOOGLE_ID'),
