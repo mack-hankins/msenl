@@ -8,7 +8,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "laravel/framework": "5.1.*",
+        "laravel/framework": "5.2.*",
         "laravel/socialite": "2.0.*@dev",
         "anahkiasen/former": "~4.0@dev",
         "diego1araujo/titleasy": "dev-master",
@@ -49,5 +49,9 @@
     },
     "config": {
         "preferred-install": "dist"
+    },
+    "require-dev": {
+        "symfony/dom-crawler": "~3.0",
+        "symfony/css-selector": "~3.0"
     }
 }
