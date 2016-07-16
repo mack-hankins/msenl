@@ -18,12 +18,12 @@
                                     <a href="{{ $user->Map }}">
                                         <i class="fa fa-map-marker"></i>
                                     </a>
-                                    @if(!empty($user->telegram))
+                                    @if(!empty($telegram))
                                         <a href="https://telegram.me/{{ $telegram }}" title="Telegram">
                                             <i class="fa fa-paper-plane"></i>
                                         </a>
                                     @endif
-                                    @if(Auth::user()->id == $user->id)
+                                    @if(Auth::check() && Auth::user()->id == $user->id)
                                         <a href="{{ route('user.edit', $user->id) }}" title="Edit Profile">
                                             <i class="fa fa-pencil"></i>
                                         </a>
