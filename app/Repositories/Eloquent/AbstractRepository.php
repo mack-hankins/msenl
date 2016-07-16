@@ -35,7 +35,7 @@ abstract class AbstractRepository
      * @param int $id
      * @return mixed
      */
-    public function find(int $id)
+    public function find($id)
     {
         return $this->model->findOrFail($id);
     }
