@@ -4,6 +4,10 @@ namespace Msenl\Jobs;
 
 use Illuminate\Bus\Queueable;
 
+/**
+ * Class Job
+ * @package Msenl\Jobs
+ */
 abstract class Job
 {
     /*

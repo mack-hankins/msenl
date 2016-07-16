@@ -5,8 +5,20 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "animate.css": "^3.5.1",
+    "bootstrap-datepicker": "^1.6.1",
+    "bootstrap-hover-dropdown": "^2.2.1",
+    "bootstrap-sass": "^3.0.0",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "datatables.net-responsive": "^2.1.0",
+    "datatables.net-responsive-bs": "^2.1.0",
+    "datatables.net-rowreorder": "^1.1.2",
+    "datatables.net-rowreorder-bs": "^1.1.2",
+    "fine-uploader": "^5.10.1",
+    "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "jquery": "^1.9.1",
+    "laravel-elixir": "^5.0.0"
   }
 }

@@ -6,7 +6,7 @@
 
     <div id="features">
         <div class="container">
-            <div class="row header">
+            <div class="row index-header">
                 <div class="col-md-12">
                     <h2>Join us as we battle the Resistance for control of the world.</h2>
 
@@ -53,7 +53,7 @@
 
     <div id="equipment">
         <div class="container">
-            <div class="row header">
+            <div class="row index-header">
                 <div class="col-md-12">
                     <h3>Build, Protect, and Destroy</h3>
 
@@ -90,7 +90,7 @@
 
     <div id="features">
         <div class="container">
-            <div class="row feature header">
+            <div class="row feature index-header">
                 <div class="col-md-12">
                     <h2>Join Our Community</h2>
 

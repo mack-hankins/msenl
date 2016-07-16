@@ -4,6 +4,10 @@ use Illuminate\Support\ServiceProvider;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
+/**
+ * Class ErrorServiceProvider
+ * @package Msenl\Providers
+ */
 class ErrorServiceProvider extends ServiceProvider
 {
 

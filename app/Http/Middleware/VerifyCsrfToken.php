@@ -3,6 +3,10 @@
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
+/**
+ * Class VerifyCsrfToken
+ * @package Msenl\Http\Middleware
+ */
 class VerifyCsrfToken extends BaseVerifier
 {
 

@@ -2,6 +2,11 @@
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+
+/**
+ * Class Authenticate
+ * @package Msenl\Http\Middleware
+ */
 class Authenticate
 {
     /**

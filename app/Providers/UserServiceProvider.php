@@ -4,6 +4,10 @@ namespace Msenl\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class UserServiceProvider
+ * @package Msenl\Providers
+ */
 class UserServiceProvider extends ServiceProvider
 {
 

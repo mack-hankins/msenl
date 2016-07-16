@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -11,11 +13,27 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Msenl\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'avatar' => 'https://lh6.googleusercontent.com/-MCxMwUnr1eA/AAAAAAAAAAI/AAAAAAAABlM/b3gzdohOTGI/photo.jpg?sz=50',
+        'agent' => $faker->username,
+        'level' => $faker->biasedNumberBetween(1, 16, 'sqrt'),
+        'city' => $faker->city,
+        'state' => 'MS',
+        'postalcode' => $faker->postcode,
+        'provider' => 'google',
+        'provider_id' => $faker->isbn13,
+        'verified' => 1,
+        'verified_on' => Carbon::now(),
     ];
 });
+
+$factory->define(Msenl\Faq::class, function (Faker\Generator $faker) {
+    return [
+        'question' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'answer' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+    ];
+});
+

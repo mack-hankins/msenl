@@ -3,6 +3,10 @@
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class RedirectIfAuthenticated
+ * @package Msenl\Http\Middleware
+ */
 class RedirectIfAuthenticated
 {
     /**

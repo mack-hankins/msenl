@@ -14,6 +14,13 @@ $myriad: Myriad Pro, Lato, Helvetica Neue, Arial;
 $sourceSans: Source Sans Pro, Helvetica Neue, Arial;
 $merriweather: "Merriweather", Georgia;
 
+$direction: 						'ltr' !default;
+$theme-style: 						'square' !default;
+$theme-type:  						'default' !default;
+
+//## Form Stuff
+$dropdown-shadow:					5px 5px rgba(#666, 0.1);
+
 //##  Direction
 //
 // Scripting direction
@@ -94,6 +101,16 @@ $btn-danger-border:              	darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color:        	#eee !default;
 
+$dropdown-shadow:					5px 5px rgba(#666, 0.1);
+$icon-size-normal:					14px !default;
+$brand-default:						lighten(#b7c0ce, 1%) !default;
+$general-panel-bg-color:			#f1f4f7 !default;
+$general-panel-border-color:		darken(#f1f4f7, 3%) !default;
+$general-panel-font-color:			#3f444a !default;
+$general-shadow:					0px 2px 3px 2px rgba(0, 0, 0, 0.03);
+$general-icon-color:				darken($general-panel-bg-color, 15%);
+$page-content-solid-bg-color:       darken($general-panel-bg-color, 1%) !default; // content solid bg color. default:#F0F2F7.
+
 //##  Typography
 //
 // Font, line-height, and color for body text, headings, and more.
@@ -128,7 +145,7 @@ $text-light-color:     	 			#e1e1e1 !default;
 $text-muted-color:      			#444444 !default;
 
 // Global textual link color.
-$link-color:            			#307131 !default;
+$link-color:            			$primary-color !default;
 
 // Link hover color.
 $link-hover-color:      			darken($link-color, 15%) !default;
@@ -142,7 +159,7 @@ $input-bg-disabled:              	#eeeeee !default;
 
 $input-color:                    	#333 !default;
 $input-border:                   	#e5e5e5 !default;
-$input-border-focus:             	#307131 !default;
+$input-border-focus:             	$primary-color !default;
 
 $input-color-placeholder:        	lighten($input-color, 50%) !default;
 $input-icon-color:               	#999 !default;
@@ -199,3 +216,9 @@ $screen-lg-med:                     1260px !default;
 $screen-xs-max:              		($screen-sm-min - 1) !default;
 $screen-sm-max:              		($screen-md-min - 1) !default;
 $screen-md-max:              		($screen-lg-min - 1) !default;
+
+//## Image  paths
+$global-img-path:           		'../img/' !default;
+$page-img-path:           			'../img/' !default;
+$page-media-path:           		'../media/' !default;
+

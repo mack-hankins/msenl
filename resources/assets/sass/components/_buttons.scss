@@ -1,167 +1,64 @@
 /***
-Customized Bootstrap Buttons
+Custom buttons based on bootstrap SASS
 ***/
 
-/* Default buttons */
-
 .btn {
-  border-width: 0;
-  padding: 7px 14px;
-  font-size: 14px;
-  outline: none !important;
-  background-image: none !important;
-  filter: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-
-  &.dropdown-toggle,
-  .btn-group &.dropdown-toggle,
-  &:hover,
-  &:disabled,
-  &[disabled],
-  &:focus,
-  &:active,
-  &.active {
-    outline: none !important;
-    background-image: none !important;
-    filter: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    text-shadow: none;
-  }
-}
-
-.btn-default {
-  border-width: 1px;
-  padding: 6px 13px;
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Bootstrap buttons */
-
-.btn-default {
-  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
-
-  > i {
-    color: #aaa;
-  }
-
-  > i[class^="icon-"],
-  > i[class*="icon-"] {
-    color: darken(#999, 5%);
-  }
-}
-
-.btn-primary {
-  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-
-.btn-success {
-  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-
-.btn-info {
-  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-
-.btn-warning {
-  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-
-.btn-danger {
-  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
-
-/* Button sizes */
-
-.btn-lg {
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  vertical-align: middle;
-
-  > i {
-    font-size: 18px;
-  }
-}
-
-.btn {
-  > i {
-    font-size: 14px;
-  }
-}
-
-.btn-sm,
-.btn-xs {
-  padding: 4px 10px 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-
-  > i {
-    font-size: 13px;
-  }
-}
-
-.btn-xs {
-  padding: 1px 5px;
-
-
-  > i {
-    font-size: 12px;
-  }
-}
-
-/* Small button in button group */
-
-.btn-group {
-  .input-sm {
-    .btn-default {
-      padding-top: 3px;
-      padding-bottom: 3px;
+	outline: none !important;
+    @if $theme-type == "default" { 
+	   box-shadow: none !important;   
     }
-  }
-}
 
-
-/* Arrow link */
-
-.btn-arrow-link {
-  vertical-align: middle;
-  display: inline-block;
-  font-size: 13px;
-
-  > i {
-    font-size: 14px;
-    line-height: 14px;
-    vertical-align: top;
-    margin: 2px 3px 2px 3px;
-    color: #999;
-  }
-
-  &.btn-arrow-link-lg {
-    font-size: 14px;
-
-    > i {
-      font-size: 16px;
-      line-height: 16px;
-      margin: 2px 3px 1px 3px;
+    &:hover {
+        transition: all 0.3s;
     }
-  }
 }
+
+.btn:not(.btn-sm):not(.btn-lg) {
+    line-height: 1.44;
+}
+
+/***
+Custom color buttons 
+***/
+
+@each $name, $colors in $component-colors {
+    .btn.#{$name}:not(.btn-outline) {
+        @include button-variant(map-get($colors, font), map-get($colors, base), map-get($colors, base));
+    }
+
+    .btn.btn-outline.#{$name} {  
+        border-color: map-get($colors, base);
+        color: map-get($colors, base);
+        background: none;
+
+        &:hover,
+        &:active,  
+        &:active:hover,
+        &:active:focus,     
+        &:focus,
+        &.active {
+            border-color: map-get($colors, base);
+            color: map-get($colors, font);
+            background-color: map-get($colors, base);
+        }
+    }
+  
+    .btn.#{$name}-stripe { 
+        border-left: 4px solid map-get($colors, base) !important;
+    }  
+
+
+    .btn.#{$name}.btn-no-border:not(.active) {
+        border-color: transparent;
+    }
+}
+
 
 /* Circle Buttons */
 
 .btn-circle {
-  border-radius: 25px !important;
+  border-radius: 25px !important;  
+  overflow: hidden;
 }
 
 .btn-circle-right {
@@ -194,52 +91,119 @@ Customized Bootstrap Buttons
   }
 }
 
-.btn-sm {
-  > [class^="glyphicon-"],
-  > [class*=" glyphicon-"],
-  > i {
-    font-size: 13px;
-  }
-}
-
-.btn-xs {
-  > [class^="glyphicon-"],
-  > [class*=" glyphicon-"],
-  > i {
-    font-size: 11px;
-  }
-}
 
 .btn-group.btn-group-circle {
-  > .btn {
-    &:first-child {
-      border-radius: 25px 0 0 25px !important;
-    }
+    > .btn {
+        &:first-child {
+            border-radius: 25px 0 0 25px !important;
+        }
 
-    &:last-child {
-      border-radius: 0 25px 25px 0 !important;
+        &:last-child {
+            border-radius: 0 25px 25px 0 !important;
+        }
     }
-  }
 }
 
 .btn-group.btn-group-devided {
-  > .btn {
-    margin-right: 5px;
+    > .btn {
+        margin-right: 5px;
 
-    &:last-child {
-      margin-right: 0;
+        &:last-child {
+            margin-right: 0;
+        }
     }
-  }
 }
 
 .btn-group-vertical.btn-group-vertical-circle {
-  > .btn {
-    &:first-child {
-      border-radius: 25px 25px 0 0 !important;
-    }
+    > .btn {
+        &:first-child {
+            border-radius: 25px 25px 0 0 !important;
+        }
 
-    &:last-child {
-      border-radius: 0 0 25px 25px !important;
+        &:last-child {
+            border-radius: 0 0 25px 25px !important;
+        }
     }
-  }
+}
+
+@if $theme-type == "material-design" { 
+    $uppercase-padding:               8px 14px 7px 14px !default;  
+    $uppercase-padding-lg:            12px 26px 10px 26px !default;
+    $uppercase-padding-sm:            6px 18px 6px 18px !default;
+    $uppercase-padding-xs:            3px 8px 3px 8px !default; 
+
+    .btn:not(.md-skip) {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;    
+        transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        @include border-radius($general-border-radius);          
+        overflow: hidden;  
+        position: relative;  
+        user-select: none;
+        
+        @extend .md-shadow-z-1;    
+
+        .btn-group > & {   
+            @extend .md-shadow-z-1;
+        }  
+
+        .search-form &,
+        .btn-theme-panel & {
+          box-shadow: none !important;
+          overflow: visible;
+        }
+
+        &.btn-link {
+            box-shadow: none;  
+            color: $link-color;      
+
+            &:hover {
+                text-decoration: none;
+
+                @extend .md-shadow-z-1;
+            }
+        } 
+
+        &:hover {
+            @extend .md-shadow-z-2-hover;            
+        }
+
+        &:active {
+            @extend .md-shadow-z-3-hover;
+        }
+
+        padding: $uppercase-padding;
+
+        > i {
+            margin-top: 0;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        &.btn-sm {
+            font-size: 11px;
+            padding: $uppercase-padding-sm;
+        }
+
+        &.btn-xs {
+            font-size: 11px;
+            padding: $uppercase-padding-xs;
+        }
+
+        &.btn-lg {
+            font-size: 16px;
+            padding: $uppercase-padding-lg;
+        }
+
+        &.btn-icon-only {
+            padding-left: 0;
+            padding-right: 0;  
+
+            > i {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
 }

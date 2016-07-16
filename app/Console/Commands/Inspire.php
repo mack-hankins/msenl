@@ -5,6 +5,10 @@ use Illuminate\Foundation\Inspiring;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
+/**
+ * Class Inspire
+ * @package Msenl\Console\Commands
+ */
 class Inspire extends Command
 {
 

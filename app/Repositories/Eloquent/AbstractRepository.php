@@ -14,11 +14,18 @@ abstract class AbstractRepository
 
     protected $model;
 
+    /**
+     * AbstractRepository constructor.
+     * @param Model $model
+     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function all()
     {
         return $this->model->all();
@@ -28,9 +35,9 @@ abstract class AbstractRepository
      * @param int $id
      * @return mixed
      */
-    public function getById(int $id)
+    public function find(int $id)
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
     }
 
     /**
@@ -42,5 +49,14 @@ abstract class AbstractRepository
     public function getNew(array $attributes = array())
     {
         return $this->model->newInstance($attributes);
+    }
+
+    /**
+     * @param $ids
+     * @return mixed
+     */
+    public function destroy($ids)
+    {
+        return $this->model->whereIn('id',$ids)->delete();
     }
 }

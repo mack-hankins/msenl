@@ -1,6 +1,11 @@
+$icon-font-path: "/fonts/bootstrap/";
+$fa-font-path: "/fonts/fontawesome/";
+
+@import "bootstrap";
+@import "font-awesome";
+
 /* config variables */
 @import "partials/config";
-
 
 /* modules */
 @import "modules/mixins";
@@ -9,19 +14,12 @@
 /* vendor */
 @import "bootstrap/bootstrap-overrides";
 
-/* components */
-@import "components/mixins";
-@import "components/buttons";
-@import "components/portlets";
-@import "components/form-layouts";
-@import "components/forms";
-@import "components/uniform";
-@import "components/typography";
-@import "components/misc";
+@import "_global";
+
+@import "_components";
 
 /* layout */
 @import "partials/layout";
 
-/* pages */
-@import "partials/pages/index";
+@import "_pages";
 

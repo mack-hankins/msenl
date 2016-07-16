@@ -6,6 +6,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 
+/**
+ * Class Controller
+ * @package Msenl\Http\Controllers
+ */
 class Controller extends BaseController
 {
 

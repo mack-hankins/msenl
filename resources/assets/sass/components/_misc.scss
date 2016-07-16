@@ -39,3 +39,117 @@
 .spacer {
   margin-top: 40px; /* define margin as you see fit */
 }
+
+.profile-img {
+
+  &.sm {
+    float: left;
+    margin-top: -8px;
+    margin-right: 8px;
+    @include circle(30px);
+    border: 1px black solid;
+    @media(max-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+
+  &.xsm {
+    float: left;
+    margin-right: 5px;
+    @include circle(20px);
+    border: 1px black solid;
+    @media(max-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+
+  &.lg {
+    display: block;
+    margin: 0 auto;
+    border: 2px #e1e1e1 solid;
+    @include circle(150px);
+  }
+}
+
+.contacts {
+  margin: 5px;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  a {
+    display: inline-block;
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 3px;
+    border: 1px #e1e1e1 solid;
+    width: 24px;
+    text-align: center;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  i {
+    color: white;
+    position: relative;
+  }
+  a[href*="plus"] {
+    background: #DD4B39;
+  }
+
+  a[href*="telegram"] {
+    background: #33aae0;
+  }
+
+  a[href*="edit"] {
+    background: $primary-color;
+  }
+
+  a[href*="maps"] {
+    background: #ea4335;
+  }
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+  background-color: $primary-color;
+}
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
+  content: '-';
+  background-color: $primary-color;
+}
+
+
+img.ingress-badges {
+  display: block;
+
+  &.left{
+    margin: 0px 2px;
+    float: left;
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  &.right {
+    float: right;
+    vertical-align: text-top !important;
+    max-width: 20px;
+    max-height: 20px;
+  }
+
+}
+
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+
+.margin-top-8 {
+  margin-top: 8px !important;
+}
+
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+
+.margin-top-12 {
+  margin-top: 12px !important;
+}

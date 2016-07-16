@@ -15,14 +15,6 @@ class RolesTableSeeder extends Seeder {
         $adminRole->name = 'admin';
         $adminRole->save();
 
-        $standRole = new Role();
-        $standRole->name = 'verified';
-        $standRole->save();
-
-        $modRole = new Role();
-        $modRole->name = 'moderator';
-        $modRole->save();
-
         $user = User::where('email', '=', $_ENV['ADMIN_EMAIL'])->first();
         $user->attachRole($adminRole);
     }

@@ -1,14 +1,12 @@
 <?php namespace Msenl\Http\Requests;
 
-use Msenl\Repositories\GeoCodingRepositoryInterface;
 
+/**
+ * Class RegisterRequest
+ * @package Msenl\Http\Requests
+ */
 class RegisterRequest extends Request
 {
-
-    public function __construct(GeoCodingRepositoryInterface $GeoCodingRepository)
-    {
-        $this->geocoding = $GeoCodingRepository;
-    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -28,11 +26,19 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
-            'name'       => 'required',
-            'email'      => 'required|email|unique:users',
-            'url'       => 'required',
             'agent'      => 'required',
-            'level'      => 'required',
+            'level'      => 'required|not_in:0',
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'level.not_in' => 'Level must be greater than 0',
+        ];
+        return parent::messages();
     }
 }

@@ -3,139 +3,15 @@ body {
 }
 
 a, button {
+  text-decoration: none !important;
   &:focus {
     outline: none;
   }
 }
 
-.navbar {
-  min-height: 70px;
-  background: black;
-  border-radius: 0px;
-  border: none;
-  z-index: 9999;
-  -webkit-font-smoothing: antialiased;
-
-  @media (min-width: $screen-sm-min) {
-    background: transparent;
-    padding-top: 10px;
-
-    .navbar-nav >.active > a {
-      background: transparent;
-      color: white;
-    }
-  }
-
-  .no-hover {
-    > a:hover {
-      background-color: transparent !important;
-    }
-  }
-
-  .navbar-header {
-    .navbar-brand {
-      color: white;
-      padding: 25px 15px;
-      font-weight: 500;
-      font-size: 23px;
-    }
-    .navbar-toggle {
-      margin-top: 17px;
-      background-color: $primary-color;
-      color: white;
-    }
-  }
-  .navbar-collapse {
-
-    .navbar-nav {
-
-      @media(min-width: $screen-sm-min) {
-        float: none;
-        display: inline-block;
-      }
-
-      > li {
-        float: none;
-        display: inline-block;
-        @media(max-width: $screen-sm-min) {
-          display: block;
-        }
-
-        .dropdown:hover > .dropdown-menu {
-          display: block;
-        }
-
-        > a {
-          padding: 25px 20px;
-          color: white;
-          font-weight: 500;
-          z-index: 1001;
-          @include transition(color 0.2s linear);
-
-          @media(max-width: $screen-sm-min) {
-            padding: 18px 20px;
-          }
-
-          &:hover {
-            background-color: transparent;
-            color: white;
-          }
-
-          > .profile-img {
-            margin-top: -8px;
-            margin-right: 8px;
-            @include circle(40px);
-            border: 1px black solid;
-            float: left;
-            @media(max-width: $screen-sm-min) {
-              display: none;
-            }
-          }
-
-          > i {
-            float: left;
-            font-size: 14px;
-            margin-top: 7px;
-          }
-
-          > button {
-            margin: -5px !important;
-          }
-        }
-
-        &.open {
-          > a {
-            color: white !important;
-            background-color: transparent;
-            @media(max-width: $screen-sm-min) {
-              background-color: black;
-              color: white !important;
-            }
-          }
-
-        }
-        ul.dropdown-menu {
-          margin-top: -10px;
-          margin-left: -1px;
-          text-align: left;
-          padding: 0px;
-          border-top: 2px solid black;
-
-          li a {
-            padding: 8px 18px;
-            @media(max-width: $screen-sm-min) {
-              color: white;
-              padding: 10px 18px 12px 30px;
-            }
-          }
-        }
-      }
-
-      .login-button { @include button-variant($primary-color,white,$primary-color); }
-    }
-  }
+a, a:hover {
+  color: $primary-color;
 }
-
 
 #page-header {
   overflow: hidden;
@@ -144,19 +20,18 @@ a, button {
   color: white;
   background-position: center 16%;
   position: relative;
-  top: -100px;
-  margin-bottom: -70px !important;
-  padding-top:70px;
-  padding-bottom:30px;
+  margin-bottom: 30px !important;
+  padding-top: 40px;
+  padding-bottom: 30px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 991px) {
-  padding: 20px 10px;
-}
+    padding: 20px 10px;
+  }
 
   @media (max-width: $screen-sm-min) {
-    top: -50px;
-    margin-bottom: 0px !important;
+    top: 0px;
+    margin-bottom: 30px !important;
   }
 
   &:before {
@@ -225,9 +100,7 @@ a, button {
 
   }
 
-
 }
-
 
 #footer-white {
   background: white;
@@ -238,6 +111,11 @@ a, button {
 
   @media(max-width: 991px) {
     padding-top: 30px;
+  }
+
+  a {
+    text-shadow: none;
+    color: #307131;
   }
 
   p {
@@ -353,3 +231,105 @@ a, button {
     }
   }
 }
+
+.page-wraper {
+
+  #hero {
+    overflow: hidden;
+    background: $primary-color;
+    background-size: cover;
+
+    background-position: center 16%;
+    height: 620px;
+    position: relative;
+    top: -100px;
+    padding-top: 150px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+
+    @media (max-width: 991px) {
+      padding-top: 100px;
+      height: 500px;
+    }
+
+    @media (max-width: 767px) {
+      height: 350px;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      @include gradient-horizontal($secondary-color, $primary-color, 0%, 100%);
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(6, 13, 32, 0.10);
+    }
+
+    .container {
+      position: relative;
+      z-index: 33;
+    }
+
+    h1.hero-text {
+      font-family: $lato;
+      margin-top: 50px;
+      line-height: 52px;
+      text-align: left;
+      font-size: 37px;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: .3px;
+      color: white;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+      -webkit-animation-duration: 1s;
+
+      @media (max-width: 767px) {
+        font-size: 20px;
+        line-height: 38px;
+        margin-top: 0;
+        text-align: center;
+      }
+    }
+
+    .sub-text {
+      -webkit-font-smoothing: antialiased;
+      width: 50%;
+      margin-top: 30px;
+      font-family: $lato;
+      color: white;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 28px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-animation-duration: 1s;
+
+      @media (max-width: 991px) {
+        width: 70%;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+      }
+
+      span {
+        background-color: #231F20;
+        padding: 2px;
+      }
+
+    }
+  }
+}
+

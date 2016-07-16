@@ -1,23 +1,44 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
-use Validator;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Http\Request;
 use Msenl\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Msenl\Http\Requests\RegisterRequest;
+use Msenl\Support\AuthenticateUser;
+use Illuminate\Http\Request;
 use Msenl\Repositories\UserRepositoryInterface;
-use Msenl\User;
-use Msenl\AuthenticateUser;
-use Title;
+use Illuminate\Contracts\Auth\Guard;
+use Breadcrumbs;
 
+/**
+ * Class AuthController
+ * @package Msenl\Http\Controllers\Auth
+ */
 class AuthController extends Controller
 {
 
+    /*
+    |--------------------------------------------------------------------------
+    | Registration & Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users, as well as the
+    | authentication of existing users. By default, this controller uses
+    | a simple trait to add these behaviors. Why don't you explore it?
+    |
+    */
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    /**
+     * Where to redirect users after login / registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
 
     /**
-     * @var Guard
+     * @var
      */
-    private $auth;
+    protected $auth;
 
     /**
      * @var UserRepositoryInterface
@@ -26,44 +47,52 @@ class AuthController extends Controller
 
 
     /**
+     * @param Request $request
      * @param UserRepositoryInterface $userRepository
      * @param Guard $auth
      */
-    public function __construct(UserRepositoryInterface $userRepository, Guard $auth)
+    public function __construct(Request $request, UserRepositoryInterface $userRepository, Guard $auth)
     {
-
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->request = $request;
         $this->userRepository = $userRepository;
+        $this->auth = $auth;
     }
 
     /**
-     * @param Request $request
      * @param AuthenticateUser $authenticateUser
      * @param null $provider
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @internal param Request $request
      */
-    public function login(Request $request, AuthenticateUser $authenticateUser, $provider = null)
+    public function login(AuthenticateUser $authenticateUser, $provider = null)
     {
 
-        return $authenticateUser->execute($request->has('code'), $this, $provider);
+        return $authenticateUser->execute($this->request->has('code'), $this, $provider);
 
     }
 
 
     /**
+     * @param $user
      * @param $userData
      * @param $provider
      * @return $this
      */
-    public function register($userData, $provider)
+    public function register($user, $userData, $provider)
     {
 
-        $title = Title::put('Register');
+        $this->request->session()->put('temp_id', $user->id);
+
+        $title = 'Register';
+
         $description = 'This is the first step of the verification process.';
 
-        $levels = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
+        $breadcrumbs = Breadcrumbs::render('register');
 
-        return view('pub.register')->with(compact('title', 'description', 'userData', 'provider', 'levels'));
+        $levels = collect(range(0, 16))->toArray();
+
+        return view('pub.register')->with(compact('title', 'description', 'breadcrumbs', 'userData', 'provider', 'levels'));
 
     }
 
@@ -74,8 +103,11 @@ class AuthController extends Controller
      */
     public function submit(RegisterRequest $registerRequest)
     {
+        $user_id = $this->request->session()->get('temp_id');
 
-        $user = $this->userRepository->store($registerRequest->all());
+        $user = $this->userRepository->update($user_id, $registerRequest->input());
+
+        $this->request->session()->forget('temp_id');
 
         $this->auth->login($user, true);
 
@@ -90,36 +122,8 @@ class AuthController extends Controller
     public function userHasLoggedIn($user)
     {
         \Session::flash('message', 'Welcome, ' . $user->agent);
+
         return redirect('/');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
 }

@@ -1,0 +1,20 @@
+#profile {
+
+  > a {
+    color: $primary-color !important;
+  }
+
+  .odd {
+    border-top: 1px #e1e1e1 solid;
+    background-color: #f9f9f9;
+    margin: 0px 1px;
+    padding: 8px;
+  }
+
+  .even {
+    border-top: 1px #e1e1e1 solid;
+    margin: 0px 3px;
+    padding: 8px;
+  }
+
+}

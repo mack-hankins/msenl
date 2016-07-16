@@ -263,3 +263,16 @@
     color: $text-color;
   }
 }
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+/* Cubic Bezier Transition */
+@mixin cubic-transition ($delay, $duration, $property) {
+  transition: {
+    duration: $duration;
+    property: $property;
+    timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+  }
+}

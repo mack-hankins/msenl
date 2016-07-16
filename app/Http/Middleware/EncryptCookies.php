@@ -4,6 +4,10 @@ namespace Msenl\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
+/**
+ * Class EncryptCookies
+ * @package Msenl\Http\Middleware
+ */
 class EncryptCookies extends BaseEncrypter
 {
     /**

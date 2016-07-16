@@ -1,22 +1,99 @@
 <?php
 
-Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
-Route::get('/quickstart', 'PagesController@QuickStart');
+Route::group(['middleware' => 'web'], function () {
 
-/*Login and Register*/
-Route::get('/auth/logout', ['as' => 'logout', function () {
+    Route::get('/', [
+        'as'   => '/',
+        'uses' => 'IndexController@index'
+    ]);
+    Route::get('/quickstart', [
+        'uses' => 'PagesController@QuickStart',
+        'as'   => 'quickstart',
+    ]);
 
-    Auth::logout();
+    Route::get('faq', [
+       'uses' => 'FaqController@index',
+        'as' => 'faq',
+    ]);
+    
+    /*Login and Register*/
+    Route::get('/auth/logout', [
+        'as' => 'logout',
+        function () {
 
-    return Redirect::back();
-}]);
-Route::get('/auth/{provider?}', 'Auth\AuthController@login');
-Route::get('/auth/register', 'Auth\AuthController@register');
-Route::post('/auth/submit', 'Auth\AuthController@submit');
+            Auth::logout();
 
-/*Enemy Portals*/
-Route::get('/enemy-portals/submit', 'Msenl\Http\Controllers\EnemyPortalsController@submit');
-Route::post('/enemy-portals/update', 'Msenl\Http\Controllers\EnemyPortalsController@update');
-Route::get('/enemy-portals/{agent}', 'Msenl\Http\Controllers\EnemyPortalsController@index');
-Route::get('/enemy-portals/{agent}/remove/{id}', 'Msenl\Http\Controllers\EnemyPortalsController@remove');
-Route::get('/enemy-portals/{agent}/undo/{id}', 'Msenl\Http\Controllers\EnemyPortalsController@undoremove');
+            return redirect()->route('/');
+        }
+    ]);
+    Route::get('/auth/{provider?}', [
+        'uses' => 'Auth\AuthController@login',
+    ]);
+    Route::get('/auth/register', [
+        'uses' => 'Auth\AuthController@register',
+    ]);
+    Route::post('/auth/submit', [
+        'uses' => 'Auth\AuthController@submit',
+    ]);
+
+    Route::get('agents/data', [
+        'uses' => 'ProfileController@verifiedAgents',
+        'as'   => 'agents.data',
+    ]);
+
+    Route::resource('agents', 'ProfileController', [
+        'only'       => [
+            'index',
+            'show'
+        ],
+        'paramaters' => [
+            'agent' => 'agent',
+        ]
+    ]);
+
+    Route::resource('user', 'ProfileController', [
+        'only' => [
+            'edit',
+            'update',
+            'destroy',
+        ]
+    ]);
+
+
+    Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+
+        Route::get('agents/data', [
+            'uses' => 'Admin\AgentsController@data',
+            'as'   => 'admin.agents.data',
+        ]);
+        
+        Route::resource('agents', 'Admin\AgentsController');
+        
+        Route::get('faqs/data', [
+           'uses' => 'Admin\FaqsController@data',
+            'as' => 'admin.faqs.data',
+        ]);
+
+        Route::post('faqs/update_order', [
+            'uses' => 'Admin\FaqsController@updateOrder',
+            'as' => 'admin.faqs.update_order',
+        ]);
+
+        Route::resource('faqs', 'Admin\FaqsController');
+
+        Route::get('badges/data', [
+            'uses' => 'Admin\BadgesController@data',
+            'as' => 'admin.badges.data',
+        ]);
+
+        Route::post('badges/update_order', [
+            'uses' => 'Admin\BadgesController@updateOrder',
+            'as' => 'admin.badges.update_order',
+        ]);
+
+        Route::resource('badges', 'Admin\BadgesController');
+
+    });
+
+});
+

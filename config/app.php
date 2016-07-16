@@ -146,7 +146,10 @@ return [
         Msenl\Providers\EventServiceProvider::class,
         Msenl\Providers\RouteServiceProvider::class,
         Msenl\Providers\UserServiceProvider::class,
-        Msenl\Providers\GeoCodingServiceProvider::class,
+        Msenl\Providers\RoleServiceProvider::class,
+        Msenl\Providers\ExtendValidationServiceProvider::class,
+        Msenl\Providers\FaqServiceProvider::class,
+        Msenl\Providers\BadgeServiceProvider::class,
 
         /*
 		 * Third Party Providers
@@ -154,8 +157,11 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         'Former\FormerServiceProvider',
-        'Laravel\Socialite\SocialiteServiceProvider',
-        'Radiula\Title\TitleServiceProvider',
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
+        PragmaRX\ZipCode\Vendor\Laravel\ServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Mews\Purifier\PurifierServiceProvider::class,
 
     ],
 
@@ -209,8 +215,10 @@ return [
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'Former' => 'Former\Facades\Former',
-        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
-        'Title' => 'Radiula\Title\Facades\Title',
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'ZipCode' => PragmaRX\ZipCode\Vendor\Laravel\Facade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];
