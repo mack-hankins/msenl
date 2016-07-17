@@ -26,7 +26,6 @@ $factory->define(Msenl\User::class, function (Faker\Generator $faker) {
         'provider' => 'google',
         'provider_id' => $faker->isbn13,
         'verified' => 1,
-        'verified_on' => Carbon::now(),
     ];
 });
 

@@ -6,6 +6,7 @@ namespace Msenl\Support;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Illuminate\Contracts\Auth\Guard;
 use Msenl\Repositories\UserRepositoryInterface;
+use Jleon\LaravelPnotify\Notify;
 
 /**
  * Class AuthenticateUser
@@ -71,6 +72,20 @@ class AuthenticateUser
         $this->users->updateSocial($user, $result, $provider);
 
         $this->auth->login($user, true);
+
+        if(!$user->postalcode)
+        {
+            Notify::warning(
+                'You still need to <a href="'.route('user.edit', $user->id).'">
+                edit your profile</a> to update badges and enter your zip code.',
+                'Edit Your Profile'
+            );
+        }else{
+            Notify::success(
+                'You have logged in successfully.',
+                'Welcome Back!'
+                );
+        }
 
         return $listener->userHasLoggedIn($user);
 

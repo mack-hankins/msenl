@@ -24,8 +24,6 @@ var paths = {
     'datatablesrbs': './node_modules/datatables.net-responsive-bs/',
     'datatablesro': './node_modules/datatables.net-rowreorder/js/',
     'datatablesrobs': './node_modules/datatables.net-rowreorder-bs/',
-    'datepicker': './node_modules/bootstrap-datepicker/dist/',
-
 }
 
 elixir(function (mix) {
@@ -39,7 +37,7 @@ elixir(function (mix) {
             paths.datatablesbs + 'css/dataTables.bootstrap.css',
             paths.datatablesrbs + 'css/responsive.bootstrap.css',
             paths.datatablesrobs + 'css/rowReorder.bootstrap.css',
-            paths.datepicker + 'css/bootstrap-datepicker3.css',
+            paths.assets + 'css/pnotify.custom.css',
             paths.assets + 'css/scss.css',
         ], 'public/css/app.css', './')
 
@@ -52,7 +50,7 @@ elixir(function (mix) {
             paths.datatablesr + "dataTables.responsive.js",
             paths.datatablesrbs + "js/responsive.bootstrap.js",
             paths.datatablesro + "dataTables.rowReorder.js",
-            paths.datepicker + 'js/bootstrap-datepicker.js',
+            paths.assets + 'js/pnotify.custom.js',
             "./resources/assets/js/app.js",
         ], 'public/js/app.js', './')
 

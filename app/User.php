@@ -26,7 +26,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['agent', 'level', 'city', 'state', 'postalcode', 'telegram', 'verified', 'verified_on'];
+    protected $fillable = ['agent', 'level', 'city', 'state', 'postalcode', 'telegram', 'verified'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -40,7 +40,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates = ['created_at', 'updated_at', 'verified_on'];
+    protected $dates = ['created_at', 'updated_at'];
 
     /**
      * Get the user's location.

@@ -17,7 +17,8 @@
         "yajra/laravel-datatables-oracle": "~6.0",
         "travoltron/zipcode": "^1.5",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0",
+        "jorgejavierleon/laravelpnotify": "~1.0"
     },
     "autoload": {
         "classmap": [
