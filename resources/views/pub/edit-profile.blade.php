@@ -39,7 +39,7 @@
                             ->options($levels, $agent->level)
                             ->required()
                         !!}
-                        {!! Former::text('postalcode')->label('Postal Code')->value($agent->postalcode)->required() !!}
+                        {!! Former::text('postalcode')->label('Zip Code')->value($agent->postalcode)->required() !!}
                         {!! Former::text('telegram')->value($agent->telegram)->placeholder('@username') !!}
                         @foreach($badges as $badge)
                             <div class="form-group">

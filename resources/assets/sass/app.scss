@@ -14,9 +14,11 @@ $fa-font-path: "/fonts/fontawesome/";
 /* vendor */
 @import "bootstrap/bootstrap-overrides";
 
-@import "_global";
+@import "partials/_colors";
 
 @import "_components";
+
+@import "partials/snippets/_navbar";
 
 /* layout */
 @import "partials/layout";

@@ -162,6 +162,7 @@ return [
         PragmaRX\ZipCode\Vendor\Laravel\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Jleon\LaravelPnotify\NotifyServiceProvider::class,
 
     ],
 
@@ -219,6 +220,7 @@ return [
         'ZipCode' => PragmaRX\ZipCode\Vendor\Laravel\Facade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        'Notify' => Jleon\LaravelPnotify\Notify::class,
     ],
 
 ];

@@ -32,7 +32,6 @@ class AgentRequest extends Request
             'level'      => 'required|not_in:0',
             'postalcode' => 'required|numeric|zip',
             'telegram' => 'begins_with:@',
-            'verified_on' => 'date_format:Y-m-d',
         ];
     }
 

@@ -1,5 +1,6 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
+use Jleon\LaravelPnotify\Notify;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -67,9 +68,7 @@ class AuthController extends Controller
      */
     public function login(AuthenticateUser $authenticateUser, $provider = null)
     {
-
         return $authenticateUser->execute($this->request->has('code'), $this, $provider);
-
     }
 
 
@@ -110,6 +109,12 @@ class AuthController extends Controller
         $this->request->session()->forget('temp_id');
 
         $this->auth->login($user, true);
+
+        Notify::warning(
+            'You still need to <a href="'.route('user.edit', $user->id).'">edit your profile</a>
+             to update badges and enter your zip code.',
+            'Edit Your Profile'
+        );
 
         return $this->userHasLoggedIn($user);
 

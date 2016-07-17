@@ -142,7 +142,7 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         return $this->model
             ->where('verified', '=', 1)
             ->where('state', '=', 'MS')
-            ->select('agent', 'city', 'state', 'postalcode', 'level', 'verified_on', 'avatar');
+            ->select('agent', 'city', 'state', 'postalcode', 'level', 'avatar');
 
     }
 

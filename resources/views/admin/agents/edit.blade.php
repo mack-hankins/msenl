@@ -30,13 +30,12 @@
                         !!}
                         {!! Former::text('city')->value($agent->city)->disabled() !!}
                         {!! Former::text('state')->value($agent->state)->disabled() !!}
-                        {!! Former::text('postalcode')->label('Postal Code')->value($agent->postalcode)->required() !!}
+                        {!! Former::text('postalcode')->label('Zip Code')->value($agent->postalcode)->required() !!}
                         {!! Former::text('telegram')->value($agent->telegram)->placeholder('@username') !!}
                         {!! Former::inline_radio('verified')->radios([
                             'true' => ['name' => 'verified', 'value' => '1'],
                             'false' => ['name' => 'verified', 'value' => '0'],
                         ])->check($agent->verified) !!}
-                        {!! Former::text('verified_on')->addClass('date-picker')->value($verified_date) !!}
                         {!! Former::inline_checkboxes('roles')->checkboxes($roles)->check($checkedRoles) !!}
                         @foreach($badges as $badge)
                             <div class="form-group">
@@ -71,13 +70,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('scripts')
-    <script type="text/javascript">
-        $('.date-picker').datepicker({
-            format: "yyyy-mm-dd",
-            autoclose: true,
-        });
-    </script>
 @endsection

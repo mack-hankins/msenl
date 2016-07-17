@@ -84,8 +84,6 @@ class AgentsController extends Controller
 
         $levels = collect(range(0, 16))->values()->toArray();
 
-        $verified_date = ($agent->verified_on == '0000-00-00 00:00:00' ? Carbon::now()->format('Y-m-d') : $agent->verified_on->format('Y-m-d'));
-
         $badges = collect($this->badges->all())->each(function ($badge) {
             if ($badge->has_levels == 1) {
                 return $badge->setAttribute('levels', $this->badges->badgeLevels());
@@ -116,7 +114,7 @@ class AgentsController extends Controller
         $checkedRoles = Helper::checkedObject($agent->roles, 'roles');
 
         return view('admin.agents.edit')
-            ->with(compact('title', 'agent', 'levels', 'verified_date', 'badges', 'roles', 'checkedRoles'));
+            ->with(compact('title', 'agent', 'levels', 'badges', 'roles', 'checkedRoles'));
     }
 
     /**

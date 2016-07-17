@@ -52,12 +52,6 @@
                                         <td><span class="bold">Status:</span></td>
                                         <td>@if($user->verified) Verified @else Unverified @endif</td>
                                     </tr>
-                                    @if($user->verified)
-                                        <tr>
-                                            <td><span class="bold">Verified Since:</span></td>
-                                            <td>{{ $user->verified_on->diffForHumans() }}</td>
-                                        </tr>
-                                    @endif
                                     @if(!empty($badges))
                                         <tr>
                                             <td colspan="2" class="text-center">
