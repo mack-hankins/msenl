@@ -59,6 +59,9 @@
                             </li>
                         </ul>
                     </li>
+                    @if(!Auth::user()->postalcode)
+                        {!! Toastr::warning('Please enter your zip code for verification by clicking the pencil on your profile page.', 'Edit Profile') !!}
+                    @endif
                 @else
                     <li class="no-hover">
                         <a href="{{ action('Auth\AuthController@login', ['provider' => 'google']) }}">

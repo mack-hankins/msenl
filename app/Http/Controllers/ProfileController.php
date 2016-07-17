@@ -188,7 +188,7 @@ class ProfileController extends Controller
 
         $table = Datatables::of($users);
         $table->editColumn('agent', '<img src="{{ $avatar }}" class="profile-img xsm" /> <a href="{!! route("agents.show", $agent) !!}">{{ $agent }}</a>');
-        $table->editColumn('verified_on', '{{ \Carbon\ Carbon::parse($verified_on)->toFormattedDateString() }}');
+        $table->removeColumn('avatar');
         return $table->make();
     }
 

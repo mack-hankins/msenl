@@ -23,7 +23,6 @@
                                 <th>State</th>
                                 <th>Zip</th>
                                 <th data-priority="3">Level</th>
-                                <th>Verfied</th>
                             </tr>
                             </thead>
                         </table>
