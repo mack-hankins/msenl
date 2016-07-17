@@ -6,6 +6,10 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use narutimateum\Toastr\Facades\Toastr;
 
+/**
+ * Class EditProfileMiddleware
+ * @package Msenl\Http\Middleware
+ */
 class EditProfileMiddleware
 {
     /**

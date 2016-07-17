@@ -4,6 +4,10 @@ namespace Msenl\Http\Requests;
 
 use Msenl\Http\Requests\Request;
 
+/**
+ * Class BadgeRequest
+ * @package Msenl\Http\Requests
+ */
 class BadgeRequest extends Request
 {
     /**

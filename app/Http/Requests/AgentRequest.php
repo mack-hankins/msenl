@@ -23,12 +23,13 @@ class AgentRequest extends Request
     /**
      * Get the validation rules that apply to the request.
      *
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
-    public function rules()
+    public function rules(\Illuminate\Http\Request $request)
     {
         return [
-            'agent'      => 'required',
+            'agent'      => 'required|unique:users,agent,'.$request->user()->id,
             'level'      => 'required|not_in:0',
             'postalcode' => 'required|numeric|zip',
             'telegram' => 'begins_with:@',

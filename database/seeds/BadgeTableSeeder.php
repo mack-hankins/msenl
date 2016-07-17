@@ -156,7 +156,7 @@ class BadgeTableSeeder extends Seeder
             ],
             [
                 'name' => 'P A Chapeau',
-                'slug' => 'P-a-chapeau',
+                'slug' => 'p-a-chapeau',
             ],
             [
                 'name' => 'Persepolis',

@@ -1,4 +1,8 @@
-<?php namespace Msenl\Http\Requests;
+<?php
+
+namespace Msenl\Http\Requests;
+
+use Msenl\Http\Requests\Request;
 
 
 /**
@@ -26,7 +30,7 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
-            'agent'      => 'required',
+            'agent'      => 'required|unique:users,agent',
             'level'      => 'required|not_in:0',
         ];
     }
