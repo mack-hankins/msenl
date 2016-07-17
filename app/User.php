@@ -49,7 +49,13 @@ class User extends Authenticatable
      */
     public function getLocationAttribute()
     {
-        return $this->city.', '.$this->state.' '.$this->postalcode;
+        if($this->postalcode)
+        {
+            return $this->city.', '.$this->state.' '.$this->postalcode;
+        }
+
+        return false;
+
     }
 
     /*
@@ -63,6 +69,17 @@ class User extends Authenticatable
     public function getMapAttribute()
     {
         return 'https://www.google.com/maps/place/'.$this->location;
+    }
+
+
+    /**
+     * Remove white space from agent name.
+     *
+     * @param $value
+     */
+    public function setAgentAttribute($value)
+    {
+        $this->attributes['agent'] = preg_replace('/\s+/', '', $value);
     }
 
 
