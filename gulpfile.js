@@ -24,12 +24,13 @@ var paths = {
     'datatablesrbs': './node_modules/datatables.net-responsive-bs/',
     'datatablesro': './node_modules/datatables.net-rowreorder/js/',
     'datatablesrobs': './node_modules/datatables.net-rowreorder-bs/',
+    'toastr': './node_modules/toastr/',
 }
 
 elixir(function (mix) {
     mix.sass('app.scss', paths.assets + 'css/scss.css', {includePaths: [
         paths.bootstrap + 'stylesheets',
-        paths.fontawesome + 'scss'
+        paths.fontawesome + 'scss',
     ]})
 
         .styles([
@@ -37,7 +38,7 @@ elixir(function (mix) {
             paths.datatablesbs + 'css/dataTables.bootstrap.css',
             paths.datatablesrbs + 'css/responsive.bootstrap.css',
             paths.datatablesrobs + 'css/rowReorder.bootstrap.css',
-            paths.assets + 'css/pnotify.custom.css',
+            paths.toastr + 'build/toastr.css',
             paths.assets + 'css/scss.css',
         ], 'public/css/app.css', './')
 
@@ -50,7 +51,7 @@ elixir(function (mix) {
             paths.datatablesr + "dataTables.responsive.js",
             paths.datatablesrbs + "js/responsive.bootstrap.js",
             paths.datatablesro + "dataTables.rowReorder.js",
-            paths.assets + 'js/pnotify.custom.js',
+            paths.toastr + 'toastr.js',
             "./resources/assets/js/app.js",
         ], 'public/js/app.js', './')
 

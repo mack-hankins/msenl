@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "73343ca8cc1951358679d57d082f110b",
-    "content-hash": "c2fcc1598da86128e4d45a4a0dd203c5",
+    "hash": "eff2de71085b27c2db6646c7987b52eb",
+    "content-hash": "0412b8cead9f3a80c8e235c36b2d83a6",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -918,34 +918,6 @@
             "time": "2015-12-05 17:17:57"
         },
         {
-            "name": "jorgejavierleon/laravelpnotify",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jorgejavierleon/LaravelPnotify.git",
-                "reference": "623bb6b374e57266369722d1344a809a10d73c9a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jorgejavierleon/LaravelPnotify/zipball/623bb6b374e57266369722d1344a809a10d73c9a",
-                "reference": "623bb6b374e57266369722d1344a809a10d73c9a",
-                "shasum": ""
-            },
-            "require-dev": {
-                "benconstable/phpspec-laravel": "~2.0",
-                "phpspec/phpspec": "~2.0",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Jleon\\LaravelPnotify\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-09-25 11:57:01"
-        },
-        {
             "name": "laravel/framework",
             "version": "v5.2.39",
             "source": {
@@ -1642,6 +1614,51 @@
                 "schedule"
             ],
             "time": "2016-01-26 21:23:30"
+        },
+        {
+            "name": "narutimateum/toastr-5.2-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narutimateum/toastr-5.2-laravel.git",
+                "reference": "907c0cb976545d8e3e4e92dac0ef035fc329a21c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narutimateum/toastr-5.2-laravel/zipball/907c0cb976545d8e3e4e92dac0ef035fc329a21c",
+                "reference": "907c0cb976545d8e3e4e92dac0ef035fc329a21c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": ">=5.2.7",
+                "illuminate/support": ">=5.2.7",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "narutimateum\\Toastr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harith Roslin",
+                    "email": "uharith@gmail.com"
+                }
+            ],
+            "description": "toastr.js for Laravel 5.2 easy notification like growl for example",
+            "homepage": "https://github.com/narutimateum/toastr-5.2-laravel",
+            "keywords": [
+                "laravel",
+                "notification",
+                "php",
+                "toastr"
+            ],
+            "time": "2016-01-30 12:10:08"
         },
         {
             "name": "nesbot/carbon",
@@ -3468,7 +3485,8 @@
     "stability-flags": {
         "laravel/socialite": 20,
         "anahkiasen/former": 20,
-        "zizaco/entrust": 20
+        "zizaco/entrust": 20,
+        "narutimateum/toastr-5.2-laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

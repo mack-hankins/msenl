@@ -1,6 +1,6 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
-use Jleon\LaravelPnotify\Notify;
+use narutimateum\Toastr\Facades\Toastr;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -110,9 +110,10 @@ class AuthController extends Controller
 
         $this->auth->login($user, true);
 
-        Notify::warning(
-            'You still need to <a href="'.route('user.edit', $user->id).'">edit your profile</a>
-             to update badges and enter your zip code.',
+        $message = 'You still need to <a href='.route('user.edit', $user->id).'">edit your profile</a> to update badges and enter your zip code</a>';
+
+        Toastr::warning(
+            $message,
             'Edit Your Profile'
         );
 

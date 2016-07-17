@@ -6,7 +6,7 @@ namespace Msenl\Support;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Illuminate\Contracts\Auth\Guard;
 use Msenl\Repositories\UserRepositoryInterface;
-use Jleon\LaravelPnotify\Notify;
+use narutimateum\Toastr\Facades\Toastr;
 
 /**
  * Class AuthenticateUser
@@ -75,13 +75,14 @@ class AuthenticateUser
 
         if(!$user->postalcode)
         {
-            Notify::warning(
-                'You still need to <a href="'.route('user.edit', $user->id).'">
-                edit your profile</a> to update badges and enter your zip code.',
+            $message = 'You still need to <a href='.route('user.edit', $user->id).'">edit your profile</a> to update badges and enter your zip code</a>';
+
+            Toastr::warning(
+                $message,
                 'Edit Your Profile'
             );
         }else{
-            Notify::success(
+            Toastr::success(
                 'You have logged in successfully.',
                 'Welcome Back!'
                 );
