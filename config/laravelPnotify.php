@@ -32,7 +32,7 @@ return [
     /*
      * Additional classes to be added to the notice. (For custom styling.)
     */
-    'addclass' => 'stack-bottomright',
+    'addclass' => 'stack-bottomleft',
 
     /*
      * Class to be added to the notice for corner styling.
@@ -53,7 +53,7 @@ return [
     /*
      * Minimum height of the notice. It will expand to fit content.
     */
-    'min_height' => '5px',
+    'min_height' => '16px',
 
     /*
      * Type of the notice. "notice", "info", "success", or "error".
