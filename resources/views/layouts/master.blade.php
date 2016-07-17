@@ -113,10 +113,9 @@
     <script type="text/javascript" src="{{ elixir('js/app.js') }}"></script>
     @yield('scripts')
 
-    {{-- Notify --}}
-    @include('partials.pnotify')
-
-{!! Toastr::render() !!}
+    {{-- Toastr --}}
+    {!! Toastr::render() !!}
+    {!! Toastr::clear() !!}
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
