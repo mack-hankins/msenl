@@ -62,7 +62,7 @@ class AuthenticateUser
         $user = $this->users->findByEmailOrProvider($result, $provider);
 
         if (!$user) {
-           $user = $this->users->newSocial($result, $provider);
+            $user = $this->users->newSocial($result, $provider);
         }
 
         if (empty($user->agent)) {
@@ -73,20 +73,10 @@ class AuthenticateUser
 
         $this->auth->login($user, true);
 
-        if(!$user->postalcode)
-        {
-            $message = 'You still need to <a href='.url('user/'.$user->id.'/edit').'>edit your profile</a> to update badges and enter your zip code</a>';
-
-            Toastr::warning(
-                $message,
-                'Edit Your Profile'
-            );
-        }else{
-            Toastr::success(
-                'You have logged in successfully.',
-                'Welcome Back!'
-                );
-        }
+        Toastr::success(
+            'You have logged in successfully.',
+            'Welcome Back!'
+        );
 
         return $listener->userHasLoggedIn($user);
 

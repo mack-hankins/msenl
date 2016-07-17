@@ -1,10 +1,10 @@
 <?php
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web', 'editprofile']], function () {
 
     Route::get('/', [
         'as'   => '/',
-        'uses' => 'IndexController@index'
+        'uses' => 'IndexController@index',
     ]);
     Route::get('/quickstart', [
         'uses' => 'PagesController@QuickStart',
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
 
-    Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
 
         Route::get('agents/data', [
             'uses' => 'Admin\AgentsController@data',

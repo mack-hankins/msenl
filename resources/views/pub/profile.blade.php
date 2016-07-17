@@ -27,9 +27,6 @@
                                         <a href="{{ route('user.edit', $user->id) }}" title="Edit Profile">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        @if(!Auth::user()->verified)
-                                            {!! Toastr::info('Your account is being reviewed for verification', 'Verification') !!}
-                                        @endif
                                     @endif
                                 </div>
                             </div>

@@ -1,6 +1,5 @@
 <?php namespace Msenl\Http\Controllers\Auth;
 
-use narutimateum\Toastr\Facades\Toastr;
 use Msenl\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -109,13 +108,6 @@ class AuthController extends Controller
         $this->request->session()->forget('temp_id');
 
         $this->auth->login($user, true);
-
-        $message = 'You still need to <a href='.url('user/'.$user->id.'/edit').'>edit your profile</a> to update badges and enter your zip code</a>';
-
-        Toastr::warning(
-            $message,
-            'Edit Your Profile'
-        );
 
         return $this->userHasLoggedIn($user);
 

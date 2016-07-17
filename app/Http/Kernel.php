@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'allowed' => \Msenl\Http\Middleware\AllowedUserMiddleware::class,
         'purifier' => \Msenl\Http\Middleware\PurifierMiddleware::class,
+        'editprofile' => \Msenl\Http\Middleware\EditProfileMiddleware::class,
     ];
 }
