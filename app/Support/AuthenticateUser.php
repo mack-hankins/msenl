@@ -75,7 +75,7 @@ class AuthenticateUser
 
         if(!$user->postalcode)
         {
-            $message = 'You still need to <a href='.route('user.edit', $user->id).'">edit your profile</a> to update badges and enter your zip code</a>';
+            $message = 'You still need to <a href='.url('user/'.$user->id.'/edit').'>edit your profile</a> to update badges and enter your zip code</a>';
 
             Toastr::warning(
                 $message,
