@@ -28,8 +28,9 @@ class AgentRequest extends Request
      */
     public function rules(\Illuminate\Http\Request $request)
     {
+        $user_id = ($request->route('user') > 0 ? $request->route('user') : $request->route('agents'));
         return [
-            'agent'      => 'required|unique:users,agent,'.$request->user()->id,
+            'agent'      => 'required|unique:users,agent,'.$user_id,
             'level'      => 'required|not_in:0',
             'postalcode' => 'required|numeric|zip',
             'telegram' => 'begins_with:@',
