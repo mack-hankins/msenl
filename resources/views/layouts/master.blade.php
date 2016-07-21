@@ -20,15 +20,29 @@
 
 
 </head>
+
 <body>
-<div class="page-wraper">
+<div id="page-wrapper">
 
     @include('partials.navbar')
 
-    @yield('content')
+    @if(Route::currentRouteName() == '/')
+        @include('partials.hero_index_pub')
+    @else
+        @include('partials.page-header')
+    @endif
 
+    @include('partials.breadcrumbs')
 
-    <div id="footer-white">
+    @include('partials.errors')
+
+    <main>
+        <div class="container">
+            @yield('content')
+        </div>
+    </main>
+
+    <footer id="footer-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -107,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
     <!-- javascript -->
     <script type="text/javascript" src="{{ elixir('js/app.js') }}"></script>

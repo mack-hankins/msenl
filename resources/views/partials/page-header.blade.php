@@ -7,7 +7,3 @@
         </p>
     </div>
 </div>
-
-@include('partials.breadcrumbs')
-
-@include('partials.errors')

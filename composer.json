@@ -18,7 +18,8 @@
         "travoltron/zipcode": "^1.5",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "mews/purifier": "^2.0",
-        "narutimateum/toastr-5.2-laravel": "dev-master"
+        "narutimateum/toastr-5.2-laravel": "dev-master",
+        "graham-campbell/markdown": "^6.1"
     },
     "autoload": {
         "classmap": [

@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include('partials.page-header')
     <div class="container">
         <div class="">
             <div class="portlet light bordered">

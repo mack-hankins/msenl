@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('partials.page-header')
-
     <div class="container" id="faq">
         <div class="row">
             <div class="col-md-12">
@@ -20,7 +18,7 @@
                             @foreach($faqs as $faq)
                                 <li class="list-group-item"  id="{{ $faq->id }}">
                                     <h3 class="list-group-item-heading">{{ $faq->question }}</h3>
-                                    <p class="list-group-item-text">{{ $faq->answer }}</p>
+                                    <p class="list-group-item-text">{!! Markdown::convertToHtml($faq->answer) !!}</p>
                                 </li>
                             @endforeach
                         </ul>

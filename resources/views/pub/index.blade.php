@@ -2,10 +2,7 @@
 
 @section('content')
 
-    @include('partials.hero_index_pub')
-
     <div id="features">
-        <div class="container">
             <div class="row index-header">
                 <div class="col-md-12">
                     <h2>Join us as we battle the Resistance for control of the world.</h2>
@@ -132,7 +129,6 @@
                         <a href="https://itunes.apple.com/us/app/ingress/id576505181?mt=8" target="_blank"><i class="fa fa-apple"></i></a></h2>
                 </div>
             </div>
-        </div>
     </div>
 @endsection
 
