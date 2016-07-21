@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('partials.page-header')
 
     <div class="container" id="agents">
         <div class="row">

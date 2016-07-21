@@ -163,6 +163,7 @@ return [
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         'narutimateum\Toastr\ToastrServiceProvider',
+        'GrahamCampbell\Markdown\MarkdownServiceProvider',
 
     ],
 
@@ -221,6 +222,7 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Toastr' => 'narutimateum\Toastr\Facades\Toastr',
+        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
     ],
 
 ];

@@ -1,6 +1,6 @@
 
 <!-- Header -->
-<header id="header" class="header header-dark">
+<header id="header" class="header header-dark block">
     <div class="header-inner">
 
         <!-- Logo -->
