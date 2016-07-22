@@ -41,13 +41,12 @@ $(function () {
 
         if ($('body').height() < getViewPort().height) {
             height = getViewPort().height -
-                $('.header-inner').outerHeight() -
                 (
-                    $('.page-header').outerHeight() - $('.page-content').outerHeight()
-                ) - $('.page-footer').outerHeight();
+                    $('#page-header').outerHeight() - $('#page-content').outerHeight()
+                ) - $('#page-footer').outerHeight();
 
             console.log(height);
-           $('.page-content').css('min-height', height);
+           $('#page-content').css('min-height', height);
         }
     };
 

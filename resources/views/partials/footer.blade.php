@@ -1,4 +1,4 @@
-<footer class="page-footer">
+<footer id="page-footer">
     <div class="container">
         <div class="row">
             <div class="col-md-3">

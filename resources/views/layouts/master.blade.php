@@ -24,19 +24,11 @@
 <body>
 <div id="page-wrapper">
 
-    @include('partials.navbar')
+    <div id="page-header">
+        @include('partials.header')
+    </div>
 
-    @if(Route::currentRouteName() == '/')
-        @include('partials.hero_index_pub')
-    @else
-        @include('partials.page-header')
-    @endif
-
-    @include('partials.breadcrumbs')
-
-    @include('partials.errors')
-
-    <div class="page-content">
+    <div id="page-content">
         <div class="container">
             @yield('content')
         </div>

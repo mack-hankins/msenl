@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="sub-header">
     <div class="container">
         <h1>{{ isset($title) ? $title : 'MSENL' }}</h1>
 
