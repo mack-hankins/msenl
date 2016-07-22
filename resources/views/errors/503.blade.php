@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12 page-500">
                 <div class="number font-green"> 503 </div>
@@ -13,5 +12,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
