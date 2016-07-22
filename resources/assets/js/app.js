@@ -6,16 +6,50 @@ $(function () {
         stickHeader();
         int_nav_menu_height();
         delete_toggle();
+        handleContentHeight();
     });
 
     $(window).resize(function () {
         stickHeader();
         int_nav_menu_height();
+        handleContentHeight();
     });
 
     $(window).scroll(function () {
         stickHeader();
     });
+
+    // -------------------------------------------------------------------------------------------------
+    // Responsive Sticky Footer
+    // -------------------------------------------------------------------------------------------------
+    function getViewPort() {
+        var e = window,
+            a = 'inner';
+        if (!('innerWidth' in window)) {
+            a = 'client';
+            e = document.documentElement || document.body;
+        }
+
+        return {
+            width: e[a + 'Width'],
+            height: e[a + 'Height']
+        };
+    };
+
+    function handleContentHeight () {
+        var height;
+
+        if ($('body').height() < getViewPort().height) {
+            height = getViewPort().height -
+                $('.header-inner').outerHeight() -
+                (
+                    $('.page-header').outerHeight() - $('.page-content').outerHeight()
+                ) - $('.page-footer').outerHeight();
+
+            console.log(height);
+           $('.page-content').css('min-height', height);
+        }
+    };
 
     // ---------------------------------------------------------------------------------------------------------------------------->
     // SCROLL FUNCTIONS   ||-----------
