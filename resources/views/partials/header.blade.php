@@ -1,4 +1,3 @@
-
 <!-- Header -->
 <header id="header" class="header header-dark block">
     <div class="header-inner">
@@ -62,16 +61,26 @@
                 @else
                     <li class="no-hover">
                         <a href="{{ action('Auth\AuthController@login', ['provider' => 'google']) }}">
-                                <button class="google-plus">
-                                    <i class="fa fa-google-plus"></i> Login
-                                </button>
+                            <button class="google-plus">
+                                <i class="fa fa-google-plus"></i> Login
+                            </button>
                         </a>
                     </li>
                 @endif
             </ul>
         </div>
         <!-- End Navbar Navigation -->
-
     </div>
 </header>
 <!-- End Header -->
+
+@if(Route::currentRouteName() == '/')
+    @include('partials.hero_index_pub')
+@else
+    @include('partials.page-header')
+@endif
+
+@include('partials.breadcrumbs')
+
+@include('partials.errors')
+
